@@ -1,0 +1,57 @@
+---
+title: 'MTH 463 \n Homework #3'
+author: "Duncan Gates"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+output: 
+  prettydoc::html_pretty:
+    theme: hpstr # Other options are cayman, tactile, architect, leonids, hpstr
+    highlight: vignette
+    math: katex #Instead of mathjax so it works offline
+documentclass: book
+classoption:
+  - twocolumn
+  - landscape
+papersize: a5
+linestretch: 1.5
+fontsize: 12pt
+links-as-notes: true
+header-includes:
+  - \usepackage{indentfirst}
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+# Reminder to fix 5 and 6 formatting, and do 10
+# library(pagedown)
+# setwd("/Users/dunk/Classes/MTH463/Homework 3")
+# pagedown::chrome_print(input = "Homework3.html",
+#                       output = "Homework3.pdf")
+```
+
+## Problem 1
+
+Given $p_X(x)= \Bigg\{^\frac{1}{3} \frac{1}{2} _\frac{1}{6}}$
+
+
+
+
+
+$$
+
+$$
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

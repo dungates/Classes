@@ -1,0 +1,286 @@
+---
+title: 'STAT 421 \n Assignment #2'
+author: "Duncan Gates"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+output: 
+  prettydoc::html_pretty:
+    theme: leonids # Other options are cayman, tactile, architect, leonids, hpstr
+    highlight: vignette
+    math: katex #Instead of mathjax so it works offline
+documentclass: book
+classoption:
+  - twocolumn
+  - landscape
+papersize: a5
+linestretch: 1.5
+fontsize: 12pt
+links-as-notes: true
+header-includes:
+  - \usepackage{indentfirst}
+  - \usepackage{amsmath}
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(pagedown)
+setwd("/Users/dunk/Classes/STAT421/Assignment 2")
+pagedown::chrome_print(input = "Assignment2.html",
+                      output = "Assignment2.pdf")
+```
+
+## Problem 2.54
+
+There are ${8 \choose 4}$ ways to choose 4 students from the 8 overall students.
+
+There are $3 \choose 2$ ways to choose 2 undergraduates and ${5 \choose 2}$ graduate student selections possible if two undergraduates are selected.
+
+So we have $\frac{{3 \choose 2}{5 \choose 2}}{8 \choose 4}$ as the probability that two undergraduates will be among the four chosen.
+
+$\frac{{3 \choose 2}{5 \choose 2}}{8 \choose 4} = \frac{3*10}{70}$
+
+$\boxed{\frac{3}{7}}$
+
+## Problem 2.64
+
+The numbers 1,2,3,4,5, and 6 can be arranged in 6! ways, and if the die is tossed 6 times then the number of samples will be $6^6$
+
+Therefore we have,
+
+$(\frac{6!}{6})^6=\frac{720}{46656}=0.0154$
+
+## Problem 2.72
+
+**a.** Are the events A and M independent?
+
+We have $P(A)=0.6$ and $P(M) = 0.4$, $P(\overline{A})=0.4$, and $P(\overline{M}) = 0.6$
+
+The tables gives that $P(A \cap M) = 0.24$
+
+Events A and M are independent if $P(A/M) = P(A)$, $P(M/A)=P(M)$, and $P(A \cap M) = P(A)P(M)$
+
+For $P(A / M) = \frac{P(A \cap M)}{P(M)}$
+
+We have $= \frac{0.24}{0.4}$
+
+$= 0.6 = P(A)$
+
+For $P(M/A) = \frac{P(M \cap A)}{P(A)}$
+
+We have $\frac{0.24}{0.6}$
+
+$= 0.4 = P(M)$
+
+For $P(A \cap M)= P(A)P(M)$
+
+We have $=0.6*0.4$
+
+$= \boxed{0.24}$
+
+Therefore all conditions of independence are satisfied and events A and M are independent.
+
+**b.** Are the events $\overline{A}$ and F independent?
+
+The events $\overline{A}$ and F are independent if $P(\overline{A}/F) = P(\overline{A})$, $P(F/\overline{A})=P(F)$, and $P(\overline{A} \cap F) = P(\overline{A})P(F)$
+
+For $P(\overline{A}/F) = P(\overline{A})$
+
+We have $=\frac{0.24}{0.6}$
+
+$= 0.4 = P(\overline{A})$
+
+For $P(F/\overline{A})=P(F)$
+
+We have $\frac{0.24}{0.4}$
+
+$=0.6 = P(F)$
+
+For $P(\overline{A} \cap F) = P(\overline{A})P(F)$
+
+We have $0.4*0.6$
+
+$= 0.24$
+
+Therefore all three conditions are satisfied and events $\overline{A}$ AND F are independent.
+
+## Problem 2.80
+
+Given $A \subset B$ and that $P(A)>0$ and $P(B)>0$
+
+Let $A \subset B$, then by probability we have, $P(A) < P(B)$
+
+${A \cap B}$ and $A \cup B = B$
+
+$P(A \cap B) = P(A)$ and
+
+$P(A \cup B) = P(B)$
+
+
+
+$P(B|A)=\frac{A \cap B}{P(A)}$
+
+$= \frac{P(A)}{P(A)}$ (since $A \subset B$, $A \cap B = A$ and $P(A \cap B) = P(A))$
+
+$=1$
+
+Therefore, $P(B|A) = 1$
+
+$P(A|B)=\frac{P(A \cap B)}{P(B)}$
+
+= $\frac{P(A)}{P(B)}$ (since $A \subset B, A \cap B=A$ and $P(A \cap B)=P(A))$
+
+Therefore $\boxed{P(A | B) = \frac{P(A)}{P(B)}}$
+
+## Problem 2.88
+
+**a.** 
+
+It is possible that $P(A \cap B) = 0.1$, the intersection of events has to be at least 0 and at most 0.3. Therefore it is possible that it will be 0.1 since $0<0.01<0.3$.
+
+**b.**
+
+The smallest possible value for the intersection of events A and B is 0 since the sets could be disjoint.
+
+**c.**
+
+It is not possible that $P(A \cap B)=0.7$ since this is greater than the probability of either A or B, $0 < 0.6 < 0.7$
+
+**d.**
+
+The largest possible value of $P(A \cap B)$ is 0.3, since the intersection of events A and B is the subset of individual events A and B. Therefore the maximum value is equal to the lowest probability of individual events.
+
+## Problem 2.98
+
+The probability that current will flow in the series system is
+
+Let $E_1$ = Relay 1 is activated, $E_2$ = Relay 2 is activated
+
+Then $P(E_1)=0.9$, $P(E_2) = 0.9$
+
+and $P(\overline{E_1}) = 0.1$, $P(\overline{E_2}) = 0.1$
+
+$P(E_1)*P(E_2)$
+
+$(0.9)(0.9)$
+
+Therefore, the probability for the series system is $\boxed{0.81}$
+
+The probability that the current will flow in the parallel is
+
+
+
+
+$$
+%% Comment here!
+\begin{aligned}
+P(E_1 \cup E_2) &= 1 - P(\overline{E_1 \cup E_2}) && \text{by the additional theorem of probability} \\
+&= 1 - P(\overline{E_1} \cap \overline{E_2}) && \text{by the commutative law of probability} \\
+&= 1 - P(\overline{E_1})P(\overline{E_2}) \\
+&= 1 - (0.1)(0.1)
+\end{aligned}
+$$
+
+Therefore, the probability that the current will flow in the parallel circuit is $= \boxed{0.99}$
+
+## Problem 2.132
+
+Let $R_1, R_2, R_3$ be the event that the plane is in region 1, region 2, or region 3
+
+Let G be the event that a search of region 1 is unsuccessful
+
+Then using that $1 - \alpha_i$ denotes the probability that the plane will be found on a search of the ith region $P(G|R_1)=\alpha_1$
+
+**a.**
+
+Applying Bayes' Theorem we have that $P(R_1|G)=\frac{P(G|R_1)P(R_1)}{P(G|R_1)P(R_1)+P(G|R_2)P(R_2)+P(G| R_3)P(R_3)}$
+
+$$\begin{aligned}
+&=\frac{\alpha_1(\frac{1}{3})}{\alpha_1+1(\frac{1}{3})+1(\frac{1}{3})} \\
+&=\frac{\frac{\alpha_1}{3}}{\frac{\alpha_1+1+1}{3}} \\
+&=\boxed{\frac{\alpha_1}{\alpha_1+2}}
+\end{aligned}$$
+
+
+**b.**
+
+Once again using Bayes' Theorem we have that
+
+$$
+\begin{aligned}
+P(R_2|G)&=\frac{P(G|R_2)P(R_2)}{P(G|R_1)P(R_1)+P(G|R_2)P(R_2)+P(G| R_3)P(R_3)} \\
+&=\frac{1(\frac{1}{3})}{\alpha_1(\frac{1}{3})+1(\frac{1}{3})+1(\frac{1}{3})} \\
+&=\frac{\frac{1}{3}}{\frac{\alpha_1+1+1}{3}} \\
+&=\frac{1}{\alpha_1+2}
+\end{aligned}
+$$
+
+
+**c.**
+
+Once again using Bayes' Theorem we have that
+
+$$
+\begin{aligned}
+P(R_3|G)&=\frac{P(G|R_3)P(R_3)}{P(G|R_1)P(R_1)+P(G|R_2)P(R_2)+P(G| R_3)P(R_3)} \\
+&=\frac{1(\frac{1}{3})}{\alpha_1(\frac{1}{3})+1(\frac{1}{3})+1(\frac{1}{3})} \\
+&=\frac{\frac{1}{3}}{\frac{\alpha_1+1+1}{3}} \\
+&=\frac{1}{\alpha_1+2}
+\end{aligned}
+$$
+
+## Problem 3.4
+
+Given that Y is the number of open paths from A to B
+
+Let $M_1$ be the path from A to B through valve 1, and $M_2$ be the path from A to B through valves 2 and 3.
+
+Let $E_1$ represent the water going through the 1st valve, $E_2$ through the 2nd valve, and $E_3$ through the 3rd valve.
+
+$$
+\begin{aligned}
+P(M_1)&=P(E_1) \\
+&=0.8 \\
+P(M_2)&=P(E_1)*P(E_2) \\
+&= 0.8*0.8 \\
+&= 0.64 \\
+\end{aligned}
+$$
+Then the probability that no paths are open from A to B is
+
+$$
+\begin{aligned}
+P(Y=0)&=(1-P(M_1))(1-P(M_2)) \\
+&= (1-0.8)(1-0.64) \\
+&= (0.2)(0.36) \\
+&= 0.072
+\end{aligned}
+$$
+
+The probability that one path from A to B will be open is 
+
+$$
+\begin{aligned}
+P(Y=1)&=(1-P(M_1))(P(M_2)) + (P(M_1))(1-P(M_2)) \\
+&= (1-0.8)(0.64) + (0.8)(1-0.64) \\
+&= 0.416
+\end{aligned}
+$$
+
+The probability that two paths from A to B will open is 
+
+$$
+\begin{aligned}
+P(Y=2)&=P(M_1)*P(M_2) \\
+&= 0.8*0.64 \\
+&= 0.512
+\end{aligned}
+$$
+
+Finally we have probability distribution demonstrated below:
+
+
+![](/Users/dunk/Classes/STAT421/Assignment 2/mathimage.png)
+
+
+
+
+

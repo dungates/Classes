@@ -1,0 +1,457 @@
+Program	Type	Spinoff
+Cheers	Sitcom	No
+60 Minutes	News	No
+Roseanne	Sitcom	No
+A Different World	Sitcom	No
+Murphy Brown	Sitcom	No
+America's Funniest Home Videos	Reality	No
+Monday Night Football	Sports	No
+The Golden Girls	Sitcom	No
+Designing Women	Sitcom	No
+"Murder, She Wrote"	Drama	No
+Full House	Sitcom	No
+Unsolved Mysteries	Reality	No
+Matlock	Drama	No
+Coach	Sitcom	No
+Who's the Boss?	Sitcom	No
+CBS Sunday Movie	Special	No
+In the Heat of the Night	Drama	No
+Major Dad	Sitcom	No
+L.A. Law	Drama	No
+"Doogie Howser, M.D."	Sitcom	No
+Grand	Sitcom	No
+Head of the Class	Sitcom	No
+Growing Pains	Sitcom	No
+Baby Talk	Sitcom	No
+Davis Rules	Sitcom	No
+The Wonder Years	Sitcom	No
+Home Improvement	Sitcom	No
+Room for Two	Sitcom	No
+CBS Sunday Night Movie	Special	No
+Evening Shade	Sitcom	No
+Northern Exposure	Drama	No
+Wings	Sitcom	No
+20/20	News	No
+The Fresh Prince of Bel -Air	Sitcom	No
+NBC Monday Movie	Special	No
+ABC Monday Movie	Special	No
+48 Hours	News	No
+Rescue 911	Reality	No
+CBS Tuesday Movie	Special	No
+Love & War	Sitcom	No
+Hanging' with Mr. Cooper	Sitcom	No
+The Jackie Thomas Show	Sitcom	No
+Hearts Afire	Sitcom	No
+Primetime Live	News	No
+"Dr. Quinn, Medicine Woman"	Drama	No
+Seinfeld	Sitcom	No
+Blossom	Sitcom	No
+ABC Sunday Night Movie	Special	No
+Grace Under Fire	Sitcom	No
+Thunder Alley	Sitcom	No
+NYPD Blue	Drama	No
+Turning Point	News	No
+Dave's World	Sitcom	No
+Homicide: Life on the Street	Drama	No
+Phenom	Drama	No
+ER	Drama	No
+Friends	Sitcom	No
+Mad About You	Sitcom	No
+Madman of the People	Sitcom	No
+Ellen	Sitcom	No
+Hope and Gloria	Sitcom	No
+Me and the Boys	Sitcom	No
+Cybill	Sitcom	No
+ABC Sunday Movie	Special	No
+The Nanny	Sitcom	No
+Law & Order	Drama	No
+NBC Sunday Night Movie	Special	No
+Chicago Hope	Drama	No
+ABC Monday Night Movie	Special	No
+The Martin Short Show	Sitcom	No
+Caroline in the City	Sitcom	No
+The Single Guy	Sitcom	No
+Boston Common	Sitcom	No
+"Walker, Texas Ranger"	Drama	No
+NBC Sunday Movie	Special	No
+3rd Rock from the Sun	Sitcom	No
+The Naked Truth	Sitcom	No
+Can't Hurry Love	Sitcom	No
+The Dana Carvey Show	Sitcom	No
+Suddenly Susan	Sitcom	No
+Fired Up	Sitcom	No
+Touched by an Angel	Drama	No
+Spin City	Sitcom	No
+The Drew Carey Show	Sitcom	No
+Cosby	Sitcom	No
+The X-Files	Drama	No
+Veronica's Closet	Sitcom	No
+Union Square	Sitcom	No
+Just Shoot Me!	Sitcom	No
+20/20 - Friday	News	No
+Diagnosis: Murder	Drama	No
+King of the Hill	Sitcom	No
+Dharma & Greg	Sitcom	No
+Hiller and Diller	Sitcom	No
+Everybody Loves Raymond	Sitcom	No
+Jesse	Sitcom	No
+Providence	Drama	No
+JAG	Drama	No
+Becker	Sitcom	No
+Ally McBeal	Drama	No
+Who Wants to Be a Millionaire - Tuesday	Game	No
+Who Wants to Be a Millionaire - Thursday	Game	No
+Who Wants to Be a Millionaire - Sunday	Game	No
+The Practice	Drama	No
+Stark Raving Mad	Sitcom	No
+Judging Amy	Drama	No
+The West Wing	Drama	No
+Family Law	Drama	No
+Malcolm in the Middle	Sitcom	No
+CBS Wednesday Movie	Special	No
+Survivor	Reality	No
+CSI: Crime Scene Investigation	Drama	No
+Will & Grace	Sitcom	No
+Temptation Island	Reality	No
+Cursed/The Weber Show	Sitcom	No
+The King of Queens	Sitcom	No
+"Yes, Dear"	Sitcom	No
+The District	Drama	No
+Leap of Faith	Sitcom	No
+Inside Schwartz	Sitcom	No
+Crossing Jordan	Drama	No
+The Guardian	Drama	No
+Baby Bob	Sitcom	No
+Fear Factor	Reality	No
+Joe Millionaire	Reality	No
+American Idol - Tuesday	Variety	No
+American Idol - Wednesday	Variety	No
+Survivor (Thailand & Amazon)	Reality	No
+Scrubs	Sitcom	No
+Without a Trace	Drama	No
+The Bachelor/The Bachelorette	Reality	No
+Still Standing	Sitcom	No
+"Good Morning, Miami"	Sitcom	No
+The Apprentice	Reality	No
+Two and a Half Men	Sitcom	No
+Cold Case	Drama	No
+Las Vegas	Drama	No
+Average Joe	Reality	No
+CSI: Crime Scene Investigation	Drama	No
+American Idol - Tuesday	Variety	No
+American Idol - Wednesday	Variety	No
+Desperate Housewives	Drama	No
+Without a Trace	Drama	No
+Grey's Anatomy	Drama	No
+Everybody Loves Raymond	Sitcom	No
+Monday Night Football	Sports	No
+Two and a Half Men	Sitcom	No
+Lost	Drama	No
+Cold Case	Drama	No
+The Apprentice	Reality	No
+60 Minutes	News	No
+Medium	Drama	No
+Law & Order	Drama	No
+NCIS	Drama	No
+Law & Order: Criminal Intent	Drama	No
+Crossing Jordan	Drama	No
+CBS Sunday Movie	Special	No
+The Amazing Race	Reality	No
+Judging Amy	Drama	No
+The West Wing	Drama	No
+Dancing with the Stars	Reality	No
+The Unit	Drama	No
+Dancing with the Stars - Results	Reality	No
+Deal or No Deal - Monday	Game	No
+Deal or No Deal - Wednesday	Game	No
+Commander in Chief	Drama	No
+The New Adventures of Old Christine	Sitcom	No
+Unan1mous	Drama	No
+Criminal Minds	Drama	No
+24	Drama	No
+Out of Practice	Sitcom	No
+DancingÊwithÊtheÊStarsÊ-ÊMonday	Reality	No
+DancingÊwithÊtheÊStarsÊ-ÊTuesday	Reality	No
+DancingÊwithÊtheÊStarsÊ-ÊWednesday	Reality	No
+Sunday Night Football	Sports	No
+Shark	Drama	No
+Heroes	Drama	No
+Rules of Engagement	Sitcom	No
+Ugly Betty	Drama	No
+Brothers & Sisters	Drama	No
+The King of Queens	Sitcom	No
+Are You Smarter than a 5th Grader?	Game	No
+The Moment of Truth	Game	No
+Samantha Who?	Sitcom	No
+Hell's Kitchen	Reality	No
+The Mentalist	Drama	No
+Eleventh Hour	Drama	No
+The Bachelor	Reality	No
+Castle	Drama	No
+Bones	Drama	No
+Ghost Whisperer	Drama	No
+NUMB3RS	Drama	No
+Undercover Boss	Reality	No
+The Big Bang Theory	Sitcom	No
+The Good Wife	Drama	No
+American Idol - Thursday	Variety	No
+Body of Proof	Drama	No
+Blue Bloods	Drama	No
+The Voice	Variety	No
+Hawaii Five-0	Drama	No
+Harry's Law	Drama	No
+Modern Family	Sitcom	No
+Mike & Molly	Sitcom	No
+Person of Interest	Drama	No
+Unforgettable	Drama	No
+The X Factor - Thursday	Variety	No
+The X Factor - Wednesday	Variety	No
+Rob	Sitcom	No
+2 Broke Girls	Sitcom	No
+Once Upon a Time	Drama	No
+The Voice - Tuesday	Variety	No
+Elementary	Drama	No
+Vegas	Drama	No
+The Following	Drama	No
+Survivor: Philippines	Reality	No
+Survivor: Carmona	Reality	No
+The Blacklist	Drama	No
+Scandal	Drama	No
+Resurrection	Drama	No
+The Millers	Sitcom	No
+How I Met Your Mother	Sitcom	No
+Chicago Fire	Drama	No
+Intelligence	Drama	No
+This Is Us	Drama	No
+Young Sheldon	Sitcom	No
+The Good Doctor	Drama	No
+Bull	Drama	No
+Thursday Night Football	Sports	No
+The Voice: Tuesday	Variety	No
+Mom	Sitcom	No
+SEAL Team	Drama	No
+Instinct	Drama	No
+nine eleven	Drama	No
+S.W.A.T.	Drama	No
+Madam Secretary	Drama	No
+American Idol - Monday	Variety	No
+FBI	Drama	No
+Manifest	Drama	No
+New Amsterdam	Drama	No
+The Masked Singer	Variety	No
+God Friended Me	Drama	No
+Sunday Night Football	Sports	No
+The Big Bang Theory	Sitcom	No
+Empire	Drama	No
+Thursday Night Football	Sports	No
+Dancing with the Stars	Reality	No
+Criminal Minds	Drama	No
+Madam Secretary	Drama	No
+Blue Bloods	Drama	No
+The Blacklist	Drama	No
+The Voice: Monday	Variety	No
+Scorpion	Drama	No
+The Voice: Tuesday	Variety	No
+The Good Wife	Drama	No
+Grey'sÊAnatomy	Drama	No
+Hawaii Five -0	Drama	No
+How to Get Away with Murder	Drama	No
+Person of Interest	Drama	No
+Modern Family	Sitcom	No
+The Mentalist	Drama	No
+All in the Family	Sitcom	No
+Sanford and Son	Sitcom	No
+Chico and the Man	Sitcom	No
+M*A*S*H	Sitcom	No
+The Waltons	Sitcom	No
+Maude	Sitcom	No
+Hawaii Five-O	Drama	No
+The Mary Tyler Moore Show	Sitcom	No
+The Rockford Files	Drama	No
+Little House on the Prairie	Drama	No
+Kojak	Drama	No
+Police Woman	Drama	No
+The Bob Newhart Show	Sitcom	No
+The Wonderful World of Disney	Variety	No
+The Rookies	Drama	No
+Mannix	Drama	No
+Cannon	Drama	No
+The Streets of San Francisco	Drama	No
+The NBC Sunday Mystery Movie	Special	No
+Paul Sand in Friends and Lovers	Drama	No
+Tony Orlando & Dawn	Variety	No
+Medical Center	Drama	No
+Gunsmoke	Drama	No
+The Carol Burnett Show	Sitcom	No
+"Rich Man, Poor Man"	Special	No
+Laverne & Shirley	Sitcom	No
+The Bionic Woman	Drama	No
+The Six Million Dollar Man	Drama	No
+ABC Monday Night Movie	Special	No
+Happy Days	Sitcom	No
+One Day at a Time	Sitcom	No
+ABC Sunday Night Movie	Special	No
+Starsky & Hutch	Sitcom	No
+Good Heavens	Special	No
+"Welcome Back, Kotter"	Sitcom	No
+Barretta	Drama	No
+The Sonny & Cher Show	Variety	No
+Donny & Marie	Variety	No
+Charlie's Angels	Drama	No
+The Big Event	Special	No
+Three's Company	Sitcom	No
+Barney Miller	Sitcom	No
+NBC Monday Night Movie	Special	No
+Eight Is Enough	Sitcom	No
+What's Happening!!	Sitcom	No
+ABC Friday Night Movie	Special	No
+The Tony Randall Show	Sitcom	No
+Alice	Sitcom	No
+How the West Was Won	Drama	No
+Soap	Sitcom	No
+The Love Boat	Drama	No
+Fantasy Island	Drama	No
+Project U.F.O.	Drama	No
+The Incredible Hulk	Drama	No
+Family	Drama	No
+On Our Own	Drama	No
+Angie	Sitcom	No
+Taxi	Sitcom	No
+The Dukes of Hazzard	Sitcom	No
+Vega$	Drama	No
+CHiPs	Drama	No
+Stockard Channing in Just Friends	Sitcom	No
+Diff'rent Strokes	Sitcom	No
+That's Incredible!	Reality	No
+Dallas	Drama	No
+House Calls	Sitcom	No
+Real People	Reality	No
+"Trapper John, M.D."	Drama	No
+WKRP in Cincinnati	Sitcom	No
+Ten-speed and Brown Shoe	Sitcom	No
+"Magnum, P.I."	Drama	No
+Too Close for Comfort	Sitcom	No
+Hart to Hart	Drama	No
+Falcon Crest	Drama	No
+Dynasty	Drama	No
+The Fall Guy	Drama	No
+Hill Street Blues	Drama	No
+T.J. Hooker	Drama	No
+Simon & Simon	Drama	No
+The A-Team	Drama	No
+Newhart	Sitcom	No
+9 to 5	Sitcom	No
+CBS Tuesday Night Movie	Special	No
+Kate & Allie	Sitcom	No
+Hotel	Drama	No
+Cagney & Lacey	Sitcom	No
+TV's Bloopers & Practical Jokes	Variety	No
+Riptide	Drama	No
+Scarecrow & Mrs. King	Drama	No
+Webster	Sitcom	No
+Knight Rider	Drama	No
+Hardcastle and McCormick	Drama	No
+The Cosby Show	Sitcom	No
+Family Ties	Sitcom	No
+"Murder, She Wrote"	Drama	No
+Crazy Like a Fox	Drama	No
+Highway to Heaven	Drama	No
+Night Court	Sitcom	No
+Remington Steele	Drama	No
+The Golden Girls	Sitcom	No
+Miami Vice	Drama	No
+Who's the Boss?	Sitcom	No
+CBS Sunday Night Movie	Special	No
+Growing Pains	Sitcom	No
+You Again?	Sitcom	No
+227	Sitcom	No
+NBC Sunday Night Movie	Special	No
+Moonlighting	Drama	No
+Valerie	Sitcom	No
+Amen	Sitcom	No
+L.A. Law	Drama	No
+My Sister Sam	Sitcom	No
+ALF	Sitcom	No
+Hunter	Drama	No
+Head of the Class	Sitcom	No
+The Wonder Years	Sitcom	No
+In the Heat of the Night	Drama	No
+My Two Dads	Sitcom	No
+Day by Day	Sitcom	No
+Aaron's Way	Drama	No
+Anything but Love	Sitcom	No
+Dear John	Sitcom	No
+Unsolved Mysteries	Reality	No
+ABC Mystery Movie	Special	No
+America's Funniest Home Videos	Reality	No
+Chicken Soup	Sitcom	No
+Full House	Sitcom	No
+Designing Women	Sitcom	No
+Murphy Brown	Sitcom	No
+"Doogie Howser, M.D."	Sitcom	No
+The Fresh Prince of Bel-Air	Sitcom	No
+Navy: NCIS	Drama	Rename
+Valerie's Family	Sitcom	Rename
+The Hogan Family	Sitcom	Rename
+The Cosby Show	Sitcom	Yes
+Empty Nest	Sitcom	Yes
+America's Funniest People	Reality	Yes
+Family Matters	Sitcom	Yes
+The Simpsons	Sitcom	Yes
+Frasier	Sitcom	Yes
+Dateline NBC - Tuesday	News	Rename
+Dateline NBC - Wednesday	News	Rename
+Dateline NBC - Friday	News	Rename
+Dateline NBC - Monday	News	Rename
+20/20 - Monday	News	Rename
+20/20 - Wednesday	News	Rename
+60 Minutes II	News	Yes
+Law & Order: Special Victims Unit	Drama	Yes
+Who Wants to Be a Millionaire - Wednesday	Game	Yes
+Who Wants to Be a Millionaire - Friday	Game	Yes
+Law & Order: Criminal Intent	Drama	Yes
+CSI: Miami	Drama	Yes
+My Big Fat Greek Life	Reality	Yes
+My Big Fat Obnoxious Fiance	Reality	Yes
+CSI: Miami	Drama	Yes
+Law & Order: Special Victims Unit	Drama	Yes
+Extreme Makeover: Home Edition	Reality	Yes
+CSI: NY	Drama	Yes
+House	Drama	Yes
+Boston Legal	Drama	Yes
+CSI: NY	Drama	Yes
+Private Practice	Drama	Yes
+NCIS: Los Angeles	Drama	yes
+Criminal Minds: Suspect Behavior	Drama	yes
+NCIS: New Orleans	Drama	yes
+Chicago Med	Drama	yes
+Chicago P.D.	Drama	yes
+Dancing with the Stars: Athletes	Reality	Yes
+America's Got Talent: The Champions	Variety	Yes
+The Conners	Sitcom	Yes
+NCIS: New Orleans	Drama	Yes
+NCIS: Los Angeles	Drama	yes
+CSI: Cyber	Drama	yes
+The Jeffersons	Sitcom	yes
+Rhoda	Sitcom	yes
+Good Times	Sitcom	yes
+Cher	Variety	Yes
+Emergency!	Drama	Yes
+Phyllis	Sitcom	Yes
+"Rich Man, Poor Man Book II"	Special	yes
+Barnaby Jones	Drama	yes
+The Big Event - Sunday	Special	yes
+Mork & Mindy	Sitcom	yes
+The Ropers	Sitcom	Yes
+Lou Grant	Sitcom	Yes
+Flo	Sitcom	Yes
+Archie Bunker's Place	Sitcom	Yes
+Benson	Sitcom	Yes
+Knots Landing	Drama	yes
+The Facts of Life	Sitcom	yes
+Gloria	Sitcom	Yes
+Little House: A New Beginning	Drama	Yes
+AfterMASH	Sitcom	Yes
+A Different World	Sitcom	Yes
+Empty Nest	Sitcom	yes
+The Simpsons	Sitcom	Yes

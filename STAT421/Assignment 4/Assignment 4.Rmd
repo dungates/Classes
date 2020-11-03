@@ -1,0 +1,240 @@
+---
+title: "STAT 421 \n Assignment #4"
+author: "Duncan Gates"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+output: 
+  prettydoc::html_pretty:
+    theme: architect # Other options are cayman, tactile, architect, leonids, hpstr
+    highlight: vignette
+    math: katex #Instead of mathjax so it works offline
+documentclass: book
+classoption:
+  - twocolumn
+  - landscape
+papersize: a5
+linestretch: 1.5
+fontsize: 12pt
+links-as-notes: true
+header-includes:
+  - \usepackage{indentfirst}
+  - \usepackage{amsmath}
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+# library(pagedown)
+setwd("/Users/dunk/Classes/STAT421/Assignment 4")
+pagedown::chrome_print(input = "Assignment-4.html",
+                      output = "Assignment4.pdf")
+```
+
+## 3.71
+
+A random variable Y with geometric distribution with probability of success paramater p has its mass function given by $P(Y = y) = pq^{y-1}$
+
+**a.** 
+
+$$
+\begin{aligned}
+P(Y>a)&=1-P(Y \leq a) \\
+&=1-\sum^a_{i = 1}P(Y=y) \\
+&=1-\sum pq^{y-1} \\
+&=1- [pq^{1-1}+pq^{2-1}+pq^{3-1}+...+pq^{a-1}] \\
+&=1- p[1+q+q^2+...+q^a] \\
+&= 1 - p[\frac{1-q^a}{1-q}] \\
+&= 1 - p\frac{1-a^a}{p} \\
+&= 1 - [1-q^a] \\
+&= \boxed{q^a}
+\end{aligned}
+$$
+
+**b.**
+
+We want to show that
+
+$$
+\begin{aligned}
+P(Y > a +b | Y > a) &= q^b=P(Y>b) && \text{From the definition of geometric probability} P(Y > a + b) = q^{a+b} \\
+&= \frac{P(Y > a + b)}{P(Y > a)} \\
+&= \frac{q^{a+b}}{q^a} \\
+&= \boxed{q^b = P(Y > b)}
+\end{aligned}
+$$
+This is called the memoryless property of the geometric distribution because the distribution does not depend on a, implying that the additional time to wait has the same distribution as the initial time to wait. Time Y therefore has a geometric distribution with paramter p that consists of $p(Y>b)$.
+
+**c.**
+
+The result is "obvious" because the distribution does not depend on the time before event a occurs, giving it no sense of "memory" before the time origin.
+
+## 3.88
+
+A random variable satisfying the requirements to be a geometric random variable takes a value from 1 to infinity.
+
+$$
+\begin{aligned}
+P(Y*=y)&=P(Y-1=y) \\
+&= P(Y=y+1)\\
+&= q^{(y+1)-1}p\\
+&=q^{y-1+1}p\\
+P(Y*=y)&=q^yp
+\end{aligned}
+%% Not finished
+$$
+
+
+## 3.90
+
+Given that 40% of employees have positive indications of asbestos in their lungs, we let p = 0.4.
+
+The probability that out of 10 employees three will test positive is given by the binomial probability distribution at the point when out of 9 employees tested there are two positive cases.
+
+So we have $P(10)={{10-1} \choose {3-1}}(0.4)^3(0.6)^{10-3}$
+
+$P(10) = \boxed{0.0645}$
+
+## 3.96
+
+**a.**
+
+- First Try
+
+$$
+\begin{aligned}
+P(y = 1) &= {{1-1} \choose {0 -0}}(0.4)^1(1-0.4)^{1-1} \\
+P(y = 1) &= \boxed{0.4} 
+\end{aligned}
+$$
+
+- Second Try
+
+$$
+\begin{aligned}
+P(y = 2) &= {{2-1} \choose {1 -1}}(0.4)^1(1-0.4)^{2-1} \\
+P(y = 2) &= \boxed{0.24} 
+\end{aligned}
+$$
+
+- Third Try
+
+$$
+\begin{aligned}
+P(y = 3) &= {{3-1} \choose {1 -1}}(0.4)^1(1-0.4)^{3-1} \\
+P(y = 3) &= \boxed{0.144} 
+\end{aligned}
+$$
+
+**b.**
+
+$$
+\begin{aligned}
+P(y = 4) &= {{4-1} \choose {2 -1}}(0.4)^2(1-0.4)^{4-2} \\
+P( y = 2)&= {3 \choose 1}(0.4)^2(0.6)^2 \\
+P(y = 2) &= \boxed{0.1728} 
+\end{aligned}
+$$
+
+## 3.110
+
+For each of these probabilities we use the probability mass function of a hypergeometric distribution:
+
+$P(Y = y)= \frac{{r \choose y} {{N -r} \choose {n - y}}}{{N \choose n}}$ where N is the population size, r is the number of success states in the population, n is the number of draws, and k is the number of observed successes.
+
+**a.** $P(Y=1)$
+
+$$
+\begin{aligned}
+P(Y = 1) &= \frac{{4 \choose 2}{2 \choose 1}}{{6 \choose 3}} \\
+&= \boxed{0.6}
+\end{aligned}
+$$
+
+**b.** $P(Y \geq 1)$
+
+$$
+\begin{aligned}
+P(Y \geq 1) &= 1 - P(Y < 1) \\
+&= 1 -P(Y=0) \\
+&=1-\frac{{4 \choose 3}{2 \choose 0}}{{6 \choose 3}} \\
+&= \boxed{0.8}
+\end{aligned}
+$$
+
+
+**c.** $P(Y \leq 1)$
+
+$$
+\begin{aligned}
+P(Y \leq 1)&=P(Y = 0)+P(Y = 1)\\
+&= \frac{{4 \choose 3}{2 \choose 0}}{{6 \choose 3}}+\frac{{4 \choose 2}{2 \choose 1}}{{6 \choose 3}}\\
+&= \boxed{0.8}
+\end{aligned}
+$$
+
+
+## 3.118
+
+Once again following the hypergeometric distribution we have $P(Y = y)= \frac{{r \choose y} {{N -r} \choose {n - y}}}{{N \choose n}}$.
+
+The probability that the hand contains 4 aces given that 3 is therefore given by:
+
+$$
+\begin{aligned}
+P(Y =4|Y \geq 3)&=\frac{P(Y =4)}{P(Y \geq 3)}\\
+&= \frac{P(Y = 4)}{P(Y = 3) + P(Y = 4)}\\
+&= \frac{\frac{{4 \choose 4}{48 \choose 1}}{52 \choose 5}}{\frac{{4 \choose 3}{48 \choose 2}}{52 \choose 5}+\frac{{4 \choose 4}{48 \choose 1}}{52 \choose 5}} \\
+&= \boxed{0.0105}
+\end{aligned}
+$$
+
+
+## 3.122
+
+Using a Poisson distribution with mean $\lambda = 7$ we have $P(y) = \frac{e^{-\lambda} \lambda^y}{y!} = \frac{e^{-7} 7^y}{y!}$
+
+**a.** The probability that no more than three customers arrive
+
+$$
+\begin{aligned}
+P(Y \leq 3) &= P(Y = 0) + P(Y = 1) + P(Y = 2) + P(Y = 3) \\
+&= \frac{e^{-7}7^0}{0!} + \frac{e^{-7}7^1}{1!} + \frac{e^{-7}7^2}{2!} + \frac{e^{-7}7^3}{3!}
+&= \boxed{0.0817}
+\end{aligned}
+$$
+
+**b.** The probability of at least 3 customers arriving
+
+$$
+\begin{aligned}
+P(Y \geq 2) &= 1 -P(Y <2) \\
+&=1 - (P(Y = 0) + P(Y = 1)) \\
+&= 1 - (\frac{e^{-7}7^0}{0!} + \frac{e^{-7}7^1}{1!})\\
+&=\boxed{0.9927}
+\end{aligned}
+$$
+
+**c.** The probability of exacty five customers arriving
+
+$$
+\begin{aligned}
+P(Y = 5)&= \frac{e^{-7}7^5}{5!} \\
+&= \boxed{0.1277}
+\end{aligned}
+$$
+
+
+## 3.130
+
+Given that the number of cars arriving at the entrances are independent at entrance 1 we have $\text{Poisson}(\lambda_1=3)$ and at entrance 2 we have $\text{Poisson}(\lambda_2=4)$
+
+The total probability that three will arrive in a given hour is therefore given by $\text{Poisson}(\lambda_1 + \lambda_2 = 7)$ which gives 
+
+$$
+\begin{aligned}
+P(Y = 3)&=\frac{e^{-7}(7)^3}{3!} \\
+&= \boxed{0.0521}
+\end{aligned}
+$$
+
+
+
+

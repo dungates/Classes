@@ -1,0 +1,296 @@
+---
+title: 'MTH 463 \n Homework #2'
+author: "Duncan Gates"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+output: 
+  prettydoc::html_pretty:
+    theme: cayman # Other options are cayman, tactile, architect, leonids, hpstr
+    highlight: vignette
+    math: katex #Instead of mathjax so it works offline
+documentclass: book
+classoption:
+  - twocolumn
+  - landscape
+papersize: a5
+linestretch: 1.5
+fontsize: 12pt
+links-as-notes: true
+header-includes:
+  - \usepackage{indentfirst}
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+# Reminder to fix 5 and 6 formatting, and do 10
+# library(pagedown)
+# setwd("/Users/dunk/Classes/MTH463/Homework 2")
+# pagedown::chrome_print(input = "Homework2.html",
+#                       output = "Homework2.pdf")
+```
+
+## Problem 1
+
+There are ${9 \choose 2}$ possible combinations that can be ordered in 2! ways.
+
+So we have ${9 \choose 2} *2!=9*8=72$
+
+Each five digit combination will have a permutation consisting of a pair as ${5 \choose 2}$.
+
+So in total we have $72* {5 \choose 2} = 72*10=720$
+
+Therefore the total number of ways a 5 digit number can be formed is $9 + 720=\boxed{729}$
+
+
+## Problem 2
+
+We can calculate $P(A \cap B)$ as $\frac{2*4!}{6!!}$. With 2 representing the probability of card  1 being either second or third following the one way to place card 5 at second from the top. There are then $4!$ ways to organize the rest of the cards. Finally there are $6!$ total configurations yielding $P(A \cap B) = \frac{1}{15}$.
+
+We know $P(A \cup B) = P(A) +P(B) - P(A \cap B)$
+
+$P(A)=\frac{3}{6}= \frac{1}{2}$ and $P(B) = \frac{1}{6}$
+
+Therefore $P(A \cup B) = \frac{1}{2}+\frac{1}{6}-\frac{1}{15}$
+
+
+## Problem 3
+
+Simplifying
+
+
+\begin{aligned}
+&= (E \cup F) \cap (E \cup \overline{F}) \\
+&= (E \cup F) \cap \overline{F} && \text{by the distributive law} \\
+&= (F \cup \overline{F}) \cap E && \text{by the associative law} \\
+&= E
+\end{aligned}
+
+
+We also have 
+
+\begin{aligned}
+&=  (E \cup F) \cap (\overline{E} \cup {F}) \cap (E \cup \overline{F}) \\
+&= F \cap (E \cup \overline{F}) && \text{by the distributive law} \\
+&= (F \cap E) \cup (F \cap \overline{F}) \\
+&= E \cap F
+\end{aligned}
+
+## Problem 4
+
+Given events E, F, and G
+
+**a. At least one of the three events occurs**
+
+At least one is the complement of none of them i.e.
+
+$\overline{(\overline{E} \cap \overline{F} \cap \overline{G})}$
+
+Using De Morgan's Law becomes
+
+$\boxed{E \cup F \cup G}$
+
+So for the given events E, F, and G at least one of the three events occurs
+
+**b. At most one of the three events occurs.**
+
+
+One of the three events occurring can be written as
+
+$[(E \cap F) \cup (F \cap G) \cup (G \cap E)]$
+
+So at most it will be
+
+$\boxed{(E \cap \overline{F} \cap \overline{G}) \cup (\overline{E} \cap F \cap \overline{G}) \cup (\overline{E} \cap \overline{F} \cap G) \cap (\overline{E} \cap \overline{F} \cap \overline{G})}$
+
+
+**c. Exactly two of them occur.**
+
+
+$\boxed{(E \cap F \cap \overline{G}) \cup (E \cap \overline{F} \cap G) \cup (\overline{E} \cap F \cap G)}$
+
+
+**d. At most two of the three events occur.**
+
+At most two of the three events occur is the complement of all three events occur
+
+All three events occur can be written as $E \cap F \cap G$
+
+The complement of which is 
+
+$\boxed{\overline{(E \cap F \cap G)} = (\overline{E} \cap \overline{F} \cap \overline{G})}$
+
+
+**e. All three events occur.**
+
+
+$\boxed{(E \cap F \cap G)}$
+
+
+**f. None of the three events occurs.**
+
+None of the three events is the complement of each event
+
+$\boxed{(\overline{E} \cap \overline{F} \cap \overline{G})}$
+
+
+**g. At most three of the events occur.**
+
+This includes zero, one, two, and three events occurring, so
+
+$\boxed{\text{This includes the entire sample space S}}$
+
+**h. E or F, but not G occur.**
+
+$\boxed{(E \cup F) \cap \overline{G}}$
+
+**i. Both E and F, but not G occur.**
+
+$\boxed{E \cap F \cap \overline{G}}$
+
+**j. Exactly one of the three events occurs.**
+
+This can be thought of as each event occurring against its complement
+
+$\boxed{[E \cap (\overline{F} \cap \overline{G})] \cup [F \cap (\overline{E} \cap \overline{G})] \cup [G \cap (\overline{E} \cap \overline{F})]}$
+
+
+
+## Problem 5
+
+We have
+
+$$
+\begin{aligned}
+P(E \cap F \cap G) &= P(E)+P(F)+P(G)-P(\overline{E} \cap F \cap G)\\
+&-P(E \cap \overline{F} \cap G)-P(E\cap F \cap \overline{G})-2P(E \cap F \cap G) \\
+\text{which gives} \\
+P(E \cap F \cap G) &= P(E)+P(F)+P(G)-P(\overline{E} \cap F)\\
+&-P(E \cap G)-P(F \cap G) + P(E \cap F \cap G) && \text{by the inclusion-exclusion rule} \\
+\text{after plugging in} \\
+P(E \cap F) &= P(E \cap F \cap G) + P(E \cap F \cap \overline{G}) \\
+P(E \cap G) &= P(E \cap F \cap G) + P(E \cap \overline{F} \cap G) \\
+P(F \cap G) &= P(E \cap F \cap G) + P(\overline{E} \cap F \cap G) \\
+\end{aligned}
+$$
+
+We have the equation
+
+$$
+\boxed{
+\begin{aligned}
+P(E \cap F \cap G) &= P(E)+P(F)+P(G)-P(\overline{E} \cap F \cap G)-P(E \cap \overline{F} \cap G)-P(E\cap F \cap \overline{G})\\
+&-2P(E \cap F \cap G)
+\end{aligned}
+}
+$$
+
+
+
+## Problem 6
+
+We have 
+
+
+$P(\overline{E}\cap \overline{F} \cap \overline{G}) = 1-P(E)-P(F)-P(G)+P(E\cap F)+P(E\cap G)+P(F\cap G)-P(E\cap F \cap G)$
+and de Morgan's Law gives
+
+$\overline{E}\cap \overline{F} \cap \overline{G} = \overline{E \cup F \cup G}$
+
+So,
+
+$P(\overline{E}\cap \overline{F} \cap \overline{G}) =1-P(E \cup F \cup G)$
+
+and,
+
+$P(E \cup F \cup G) = P(E) + P(F) + P(G) - P(E \cap F) - P(E \cap G) - P(F \cap G)+P(E \cap F \cap G)  \qquad{\text{by the inclusion-exclusion formula}}$
+
+Thus we obtain the equation,
+
+$\boxed{P(E \cup F \cup G) = P(E) - P(F) - P(G) + P(E \cap F) + P(E \cap G) + P(F \cap G)-P(E \cap F \cap G)}$
+
+
+## Problem 7
+
+Given events E, F, and G, such that $P(F)>P(F \cap G) > 0$
+
+$$
+\begin{aligned}
+P(E |F)= \frac{P(E \cap F)}{P(F)} \\
+\frac{P(E \cap F)}{P(F)} &= \frac{P(E \cap F \cap G)}{P(F)} + \frac{P(E \cap F \cap \overline{G})}{P(F)} \\
+&= \frac{P(E \cap F \cap G)}{P(F \cap G)}*\frac{P \cap G}{P(F)}+\frac{P(E \cap F \cap \overline{G})}{P(F \cap \overline{G})}*\frac{P(F \cap \overline{G})}{P(F)}
+\end{aligned}
+$$
+
+## Problem 8
+
+We have $P(E_1 \cap E_2 \cap ... \cap E_n)\geq P(E_1)+P(E_2)+...+P(E_n)-(n-1)$
+
+We know that for n = 2: $P(E_1 \cap E_2) \geq P(E_1) + P(E_2)-1$
+
+For $n \geq 2$ suppose we established the Bonferroni's inequality for any n events:
+
+$P(E_1 \cap E_2 \cap ... \cap E_n) \geq P(E_1)+P(E_2)+...+P(E_n)-(n-1)$
+
+We need to prove the inequality for any $n+1$ events:
+
+$P(E_1 \cap E_2 \cap ... \cap E_n \cap E_{n+1}) \geq P(E_1) + P(E_2) +...+P(E_n)+P(E_{n+1})-n$
+
+We use the Bonferron's inequality for any n events $E_1, E_2, ..., E_{n-1}$ and $E_n \cap E_{n+1}$ to get
+
+$$
+P(E_1 \cap E_2 \cap ... \cap E_{n-1}(E_n \cap E_n+1)) \geq P(E_1) +P(E_2)+...+P(E_{n-1})+P(E_n \cap E_{n+1}) - (n-1) \\
+\text{where} \: P(E_n \cap E_{n+1}) \geq P(E_n) + P(E_{n+1})-1 \text{, and therefore}
+$$
+
+$\boxed{P(E_1 \cap E_2 \cap ... \cap E_n \cap E_{n+1} \geq P(E_1) +P(E_2)+...+P(E_{n-1})+P(E_n)+P(E_{n+1})-1-(n-1)}$
+
+
+## Problem 9
+
+Given $E_1, E_2, ...,E_n$ are independent events
+
+$$
+\begin{aligned}
+&=P(E_1 \cup E_2 \cup ... \cup E_n) \\
+&=1-P((E_1 \cup E_2 \cup ... \cup E_n)^c) \\
+&=1-P(\overline{E_1} \cap \overline{E_2} \cap ... \cap \overline{E_n}) && \text{by De Morgan's Law} \\
+\text{Therefore by independence we have } \\
+\end{aligned}
+$$
+
+$$
+\begin{aligned}
+&=P(E_1 \cup E_2 \cup ... \cup E_n) \\
+&= 1- P(\overline{E_1} \cap \overline{E_2} \cap ... \cap \overline{E_n}) \\
+&= 1 - \prod_{i = 1}^nP(\overline{E_i}) \\
+&= \boxed{1 - \prod_{i = 1}^n1-(P(\overline{E_i}))}
+\end{aligned}
+$$
+
+## Problem 10
+
+**Part 1**
+
+The probability of winning the game $P(W)$ is dependent on the road taken, we have 
+
+$P(W|R_1) = \frac{2}{3}$ and $P(W|R_2) = \frac{2}{5}$
+
+Since $P(R_1)= \frac{1}{2}$ and $P(R_2)= \frac{1}{2}$,
+
+we add $\frac{2}{3}*\frac{1}{2}+\frac{2}{5}*\frac{1}{2}$,
+
+to get $\boxed{P(W) = \frac{8}{15}}$ 
+
+**Part 2**
+
+Conditioned on the event that the game was won the probability that you took Road 1 is described as 
+
+$P(R_1|W) = \frac{P(W \cap R_1)}{P(W)}$
+
+$\frac{P(W|R_1)P(R_1)}{P(W|R_1)P(R_1)+P(W|R_2)P(R_2)} = \frac{\frac{2}{3}*\frac{1}{2}}{\frac{2}{3}*\frac{1}{2}+\frac{2}{5}*\frac{1}{2}}$
+
+$\boxed{P(R_1|W)=\frac{5}{8}}$, so the probability is 62.5%.
+
+
+
+
+

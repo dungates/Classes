@@ -1,0 +1,102 @@
+---
+title: "Coin Toss"
+author: "Duncan Gates"
+date: "10/27/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(purrr)
+```
+
+
+
+```{r}
+library(tidyverse)
+sim_coin_tosses <- function(n_sims, n, prob){
+  # Simulates n_sims sequences of n coin tosses
+  # with heads occurring with probability prob
+  map(1:n_sims, 
+      ~ rbinom(n, size = 1, prob = prob))
+}
+
+max_run_length <- function(x){
+  # Finds length of longest run in x
+  max(rle(x)$lengths)
+}
+
+sim_run_lengths <- function(n_sims, n, prob = 0.5){
+  # Returns length of longest run in n_sims sequences
+  # of coin toss sequences of  n flips, where each flip
+  # has prob of being heads, fair by default
+  sim_coin_tosses(n_sims, n = n, prob = prob) %>% 
+    map_dbl(~ max_run_length(.))
+}
+```
+
+
+```{r}
+ns <- c(10, 20, 50, 100)
+ps <- seq(0.1, 0.9, by = 0.2)
+(all_ns <- rep(ns, each = length(ps)))
+(all_ps <- rep(ps, times = length(ns)))
+```
+
+```{r}
+# map(.x, .f)
+# map2(.x, .y, .f)
+# map2(.x = c(1, 2, 3), .y = c(-1, 0, 1),
+#   ~ .x * .y)
+# map2_dbl(.x = c(1, 2, 3), .y = c(-1, 0, 1),
+#   ~ .x * .y)
+n_sims <- 10
+map2(.x = all_ns, .y = all_ps, ~  sim_run_lengths(n_sims, n = .x, prob = .y))
+```
+
+## Simulation setup
+
+```{r}
+simulation_params_big <- list(
+  n = c(10, 20, 50, 100), 
+  prob = seq(0.1, 0.9, by = 0.2),
+  n_sims = c(100, 1000, 10000)
+)
+runs_big <- cross_df(simulation_params_big)
+```
+
+## Simulation
+
+```{r}
+runs_big <- runs_big %>% 
+  mutate(
+    run_lengths = pmap(list(n = n, prob = prob, n_sims = n_sims), 
+      sim_run_lengths)) 
+```
+
+
+## Summarization 
+```{r}
+runs_big <- runs_big %>% 
+  mutate(
+    mean_max_length = map_dbl(run_lengths, mean),
+    sd_max_length = map_dbl(run_lengths, sd)
+  )
+```
+
+## Results 
+```{r}
+runs_big %>% 
+  ggplot(aes(x = n, y = mean_max_length, color = factor(prob))) +
+    geom_pointrange(aes(
+      ymin = mean_max_length - 1.96*sd_max_length/sqrt(n_sims),
+      ymax = mean_max_length + 1.96*sd_max_length/sqrt(n_sims))) +
+    geom_line()  +
+  facet_wrap(~ n_sims)
+```
+
+
+
+
+
+

@@ -1,0 +1,272 @@
+---
+title: "Assignment 1"
+author: "Duncan Gates"
+date: "9/28/2020"
+output: 
+  prettydoc::html_pretty:
+    theme: hpstr # Other options are cayman, tactile, architect, leonids, hpstr
+    highlight: vignette
+    math: katex
+documentclass: book
+classoption:
+  - twocolumn
+  - landscape
+papersize: a5
+linestretch: 1.5
+fontsize: 12pt
+links-as-notes: true
+header-includes:
+  - \usepackage{indentfirst}
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+# library(pagedown)
+# setwd("/Users/dunk/STAT421")
+# pagedown::chrome_print(input = "Assignment1.html",
+#                       output = "Assignment1.pdf")
+```
+
+## Question 1.11
+$\sum\limits_{i = 1}^n (y_i-\overline{y})^2$
+
+$\sum\limits_{i = 1}^n (y_i^2-2y_i\overline{y} + \overline{y^2})$
+
+$\sum\limits_{i = 1}^n (y_i^2-2y_i\overline{y}) + n\overline{y^2}$      (by a)
+
+$\sum\limits_{i = 1}^n y_i^2 - \sum\limits_{i = 1}^n 2y_i\overline{y} + n\overline{y^2}$
+
+$\sum\limits_{i = 1}^n y_i^2 - 2\overline{y}\sum\limits_{i = 1}^n y_i + n\overline{y^2}$      (by b)
+
+$\sum\limits_{i = 1}^n y_i^2 - 2\overline{y}*n\overline{y} + n\overline{y^2}$      (by the definition of the sample mean)
+
+$\sum\limits_{i = 1}^n y_i^2 - n\overline{y^2}$      (combine like terms)
+
+$\sum\limits_{i = 1}^n y_i^2 - \frac{1}{n}*n^2\overline{y^2}$
+
+$\sum\limits_{i = 1}^n y_i^2 - \frac{1}{n}(\sum\limits_{i = 1}^n y_i)^2$      (once again by the definition of the sample mean)
+
+Finally we can multiply $\frac{1}{n-1}$ by the original and final equations to prove 1.11.
+
+
+## Question 1.17
+**Exercise 1.2**
+
+Exercise 1.2 has a minimum value of 5.7 and a maximum value of 35.1, so the range is $35.1 - 5.7 = 29.4$ and dividing by 4 we have $\frac{29.4}{4} = 7.35$
+
+The standard deviation of exercise 1.2 is calculated with $s=\sqrt{\frac{1}{N-1}\sum_{i=1}^N(x_i-\bar{x})^2}$.
+
+So we have s = 4.14, which is significantly different than the $\frac{range}{4}$ metric for calculating standard deviation because of the effect of the outlier of 35.1.
+
+**Exercise 1.3**
+
+Exercise 1.3 has a minumum value of 0.32 and a maximum value of 12.48, so the range is $12.48 -0.32 = 12.16$ and dividing by 4 we have $\frac{12.16}{4} = 3.04$
+
+The standard deviation of exercise 1.3 is calculated as 3.17, which is very close to the $\frac{range}{4}$ metric.
+
+**Exercise 1.4**
+
+Exercise 1.4 has a minumum value of 2.61 and a maximum value of 11.88, so the range is $11.88 - 2.61 = 9.27$ and dividing by 4 we have $\frac{9.27}{4} = 2.3175$
+
+The standard deviation of exercise 1.4 is calculated as 1.87 which is fairly similar to the $\frac{range}{4}$ metric.
+
+
+## Question 2.2
+**a.** Both events occur.
+
+  $A \cap B$
+
+**b.** At least one occurs.
+
+  $A \cup B$
+
+**c.**
+Neither occurs.
+
+  $\overline{A} \cap \overline{B}$
+
+**d.**
+Exactly one occurs.
+
+  $(A \cap \overline{B}) \cup (B \cap \overline{A})$
+
+## Question 2.6
+**a.**
+Undergraduates, were living off campus or both.
+
+We have 36 undergraduate students, and 9 students living off campus, 3 of whom are undergraduates.
+
+$36 + 9 - 3 = \boxed{42}$
+
+**b.**
+Undergraduates living on campus.
+
+We have 36 undergraduates and 3 living off campus.
+
+$36 - 3 = \boxed{33}$
+
+**c.**
+Graduate students living on campus.
+
+We have 60 total students and 36 undergraduate students, 9 students live off campus, but 3 of those are undergraduates.
+
+$60-36-9+3 = \boxed{18}$
+
+## Question 2.14
+
+Let the proportion of adults needing glasses for reading be $p_{11} = 0.44$
+
+Let the proportion of adults who need glasses for reading but don't use them be $p_{12} = 0.14$
+
+Let the proportion of adults who don't need glasses for reading but do use them be $p_{21} = 0.02$
+
+Let the proportion of adults who don't need glasses for reading and don't use them be $p_{22} = 0.40$
+
+**a.** 
+Needs glasses.
+
+$P(Adult\: needs\: glasses) = p_{11} + p_{12}$
+
+$\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\; = 0.44+0.14 = 0.58$
+
+Therefore, the probability than an adult needs glasses is 0.58.
+
+**b.**
+Needs glasses but does not use them.
+
+$P(Adult\: needs\: glasses\: but\: does\: not\: use) = p_{12}$
+
+$\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;=0.14$
+
+**c.**
+Uses glasses whether the glasses are needed or not.
+
+$P(Adult\:uses\:glasses) = p_{11} + p_{21}$
+
+$\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\; = 0.44+0.02$
+
+$\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\;\; = 0.46$
+
+## Question 2.18
+**a.**
+The sample points of this experiment given that the two balanced coins are tossed and the upper faces are observed are:
+
+Let H = Head of the coin, and T = Tail of the coin
+
+The sample space is $S = \{(H, H),(H, T), (T,H),(T,T) \}$
+
+**b.**
+
+$P(H,H) = \frac{Number\:of\;sample\;points\;choosing\;(H,H)}{Total\;number\;of\;sample\;points}$
+
+$= \frac{1}{4}$
+
+$P(H,T) = \frac{Number\:of\;sample\;points\;choosing\;(H,T)}{Total\;number\;of\;sample\;points}$
+
+$= \frac{1}{4}$
+
+$P(T,H) = \frac{Number\:of\;sample\;points\;choosing\;(T,H)}{Total\;number\;of\;sample\;points}$
+
+$= \frac{1}{4}$
+
+$P(T,T) = \frac{Number\:of\;sample\;points\;choosing\;(T,T)}{Total\;number\;of\;sample\;points}$
+
+$= \frac{1}{4}$
+
+Therefore all sample points are equally likely.
+
+**c.**
+Let A denote the event that exactly one head is observed and B the event that at least one head is observed.
+
+$A = \{(H,T), (T,H)\}$
+
+$B = \{(H,H),(H,T), (T,H)\}$
+
+**d.**
+
+Given that 
+
+$A = \{(H,T), (T,H)\}$
+
+$B = \{(H,H),(H,T), (T,H)\}$
+
+$P(A) = \frac{Number\: of\: sample\: points\: in\: A}{Total\: number\: of\: sample\: points}$
+
+$= \frac{2}{4}$
+
+Therefore $\boxed{P(A) = 0.5}$
+
+$P(B) = \frac{Number\: of\: sample\: points\: in\: B}{Total\: number\: of\: sample\: points}$
+
+$= \frac{3}{4}$
+
+Therefore $\boxed{P(B) = 0.75}$.
+
+$(A \cap B) = \{(H,T), (T,H)\} \cap \{(H,H),(H,T), (T,H)\}$
+
+$\;\;\;\;\;\;\;\;\;\;\;\;\;\:=\{(H,T), (T,H) \}$
+
+$P(A \cap B) = P(\{(H,T), (T,H)\})$
+
+Which has previously been proved to be $\frac{2}{4}$
+
+Therefore $\boxed{P(A \cap B) = 0.5}$.
+
+$(A \cup B) = \{(H,T), (T,H)\} \cup \{(H,H),(H,T), (T,H)\}$
+
+$\;\;\;\;\;\;\;\;\;\;\;\;\;\:=\{(H,H),(H,T), (T,H) \}$
+
+There are three sample points so the probability will be $\frac{3}{4}$
+
+Therefore $P(A \cup B) = 0.75$.
+
+$(\overline{A} \cup B) = \{(H,H),(H,T), (T,H),(T,T) \}$
+
+There are four sample points so the probability will be $\frac{4}{4}$
+
+Therefore $P(\overline{A} \cup B) = 1$.
+
+
+## Question 2.40
+**a.**
+
+${5 \choose 1} * {4 \choose 1}*{2 \choose 1} = 40$
+
+Therefore the number of autos the dealer would have to stock would be $\boxed{40}$.
+
+**b.**
+
+${5 \choose 1} * {4 \choose 1}*{2 \choose 1}*{8 \choose 1} = 320$
+
+Therefore the number of autos the dealer would have to stock would be $\boxed{320}$.
+
+## Question 2.58
+
+The total number of ways to draw 5 cards from a deck is ${52 \choose 5} = \frac{52!}{5!(52-5)!}$
+$=2,598,960$
+
+**a.**
+
+The number of possible ways to draw 3 aces from all 4 aces in a standard deck is ${4 \choose 3}$.
+
+The number of possible ways to draw 2 kings from all 4 kings in a standard deck is ${4 \choose 2}$.
+
+Therefore, the total number of favorable cases is ${4 \choose 3}*{4 \choose 2} = 24$
+
+So we have $\frac{24}{2,598,960} = \boxed{0.0000092}$.
+
+The probability that the five drawn cards contain 3 aces and 2 kings is 0.0000092.
+
+**b.**
+
+There are 4 suits, and 13 cards in each suit. 
+
+The number of possible ways to select 2 kinds of 13 cards and order them is $2*{13 \choose 2}$ ways.
+
+The number of possible ways to select 3 cards of a particular kind and 2 cards of the other kind is ${4 \choose 3}*{4 \choose 2}$ ways.
+
+Therefore, the total number of favorable cases is $2*{13 \choose 2}*{4 \choose 3}*{4 \choose 2} = 3,744$
+
+So we have $\frac{3,744}{2,598,960} = \boxed{0.0014}$
+
+The probability that a full house is drawn 0.0014.

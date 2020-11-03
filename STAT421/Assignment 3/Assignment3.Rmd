@@ -1,0 +1,324 @@
+---
+title: "STAT 421 \n Assignment #3"
+author: "Duncan Gates"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+output: 
+  prettydoc::html_pretty:
+    theme: architect # Other options are cayman, tactile, architect, leonids, hpstr
+    highlight: vignette
+    math: katex #Instead of mathjax so it works offline
+documentclass: book
+classoption:
+  - twocolumn
+  - landscape
+papersize: a5
+linestretch: 1.5
+fontsize: 12pt
+links-as-notes: true
+header-includes:
+  - \usepackage{indentfirst}
+  - \usepackage{amsmath}
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+# library(pagedown)
+# setwd("/Users/dunk/Classes/STAT421/Assignment 3")
+# pagedown::chrome_print(input = "Assignment3.html",
+#                       output = "Assignment3.pdf")
+```
+
+## 2.172
+
+**a.**
+
+Given that $P(B)=P(A \cap B) + P(\overline{A} \cap B)$ 
+
+We can reduce
+
+$$
+\begin{aligned}
+P(A|B)&=\frac{P(A \cap B)}{P(B)} \\
+&= \frac{P(B)-P(\overline{A} \cap B)}{P(B)} \\
+&= \frac{P(B)}{P(B)} - \frac{P(\overline{A} \cap B)}{P(B)} \\ 
+&= 1 - \frac{P(\overline{A} \cap B)}{P(B)} \\
+&= 1 - P(\overline{A}|B)
+\end{aligned}
+$$
+
+So the statement $P(A/B) +P(\overline{A}/\overline{B})$ is $\boxed{\text{False}}$ 
+
+**b.**
+
+
+By the above derivation the statement $P(A/B) +P(A/\overline{B})$ is $\boxed{\text{False}}$ 
+
+**c.**
+
+
+By the derivation in **a** the statement $P(A/B) +P(\overline{A}/B)$ is $\boxed{\text{True}}$ 
+
+## 3.14
+
+**a.** 
+
+$$
+\begin{aligned}
+E(Y)&=\Sigma \:y \; p(y) \\
+&= 3*(0.03)+4*(0.05)+5*(0.07)+6*(0.10)+7*(0.14)+8*(0.20)+9*(0.18) \\
+&+10*(0.12)+11*(0.07)+12*(0.03)+13*(0.01) \\
+&=7.90
+\end{aligned}
+$$
+
+Therefore the mean patent life for a drug is $\boxed{7.90}$ years.
+
+**b.**
+
+$$
+\begin{aligned}
+SD(y) &= \sqrt{\text{Variance}(Y)} \\
+&= \sqrt{E(Y^2)-(E(Y))^2} \\
+&= \sqrt{\sum y^2 \: p(y) - (7.90)^2} \\
+&= \sqrt{3^2*(0.03)+4^2*(0.05)+5^2*(0.07)+6^2*(0.10)+7^2*(0.14)+8^2*(0.20)} \\
+&+\overline{9^2*(0.18)+10^2*(0.12)+11^2*(0.07)+12^2*(0.03)+13^2*(0.01) - 62.41} \\
+&= \sqrt{67.14-62.41} \\
+&= 2.17
+\end{aligned}
+$$
+
+Therefore the standard deviation is $\boxed{2.17}$
+
+**c.**
+
+$$
+\begin{aligned}
+P(Y \:\text{in interval} \: \mu\pm2\sigma) &=  P[\mu-2\sigma<Y<\mu+2\sigma]\\
+&= P[\frac{(\mu-2\sigma)-\mu}{\sigma}<Z<\frac{(\mu+2\sigma)-\mu}{\sigma}] \\
+&= P[\frac{(7.9-2*2.17)-7.9}{2.17}<Z<\frac{(7.9+2*2.17)-7.9}{2.17}] \\
+&= P[-2<Z<2] \\
+&= 0.9545
+\end{aligned}
+$$
+
+Therefore the probability that Y falls in the interval $\mu \pm 2\sigma$ is 95.45%.
+
+## 3.24
+
+Let P(F) = 0.1 represent the bottle having a serious flaw, and $P(\overline{F}) = 1 -0.1 = 0.9$ represent not having serious flaws.
+
+The Mean is calculated as 
+
+$$
+\begin{aligned}
+E(Y) &= n*P(F) \\
+&= 2*0.1 \\
+&= \boxed{0.2}
+\end{aligned}
+$$
+
+The variance is calculated as 
+
+$$
+\begin{aligned}
+E(Y) &= n*P(F)*P(\overline{F}) \\
+&= 2*0.1*0.9 \\
+&= \boxed{0.18}
+\end{aligned}
+$$
+
+## 3.34
+
+Given the cost of the tool is $10 we can find the mean as
+
+$$
+\begin{aligned}
+\mu &=E(10Y) \\
+&=10E(Y) \\
+&= 10(\Sigma y\:p(y)) \\
+&= 10((0*0.1) + (1*0.5) + 2(*0.4)) \\
+\text{Mean cost} &= \boxed{13}
+\end{aligned}
+$$
+
+The variance can be calculated as
+
+$$
+\begin{aligned}
+V(Y)&= V(10Y) \\
+&= 10^2((E(y^2)-\mu^2)) \\
+&= 100(E(Y^2)-\mu^2) \\
+&= 100(\Sigma y^2p(y) - (1.3)^2) \\
+&= 100(((0^2*.1)+(1^2*.5)+(2^2*.4))-1.69) \\
+\text{Variance of cost}&= \boxed{41}
+\end{aligned}
+$$
+
+
+## 3.40
+
+The probability mass function of the binomial distribution is given as $(p)^{x}(1 - p)^{(n-x)}$
+
+**a.**
+
+Therefore, the probability that 14 will recover is
+
+$$
+\begin{aligned}
+P(Y=14)&={20 \choose 14}(0.8)^{14}(1-0.8)^{20-14} \\
+&= \boxed{0.10909}
+\end{aligned}
+$$
+
+**b.**
+
+The probability that at least 10 recover is 
+
+$$
+\begin{aligned}
+P(Y \geq 10) &= P(Y=10) + P(Y=11) + P(Y=12) + P(Y=13) + P(Y=14) \\
+&+ P(Y=15) + P(Y=16) + P(Y=17) + P(Y=18) + P(Y=19) + P(Y=20) \\
+P(Y = 10) &= {20 \choose 10}(0.8)^{10}(1-0.8)^{20-10} = 0.0020314137\\
+P(Y = 11) &= {20 \choose 11}(0.8)^{11}(1-0.8)^{20-11} = 0.00738695892\\
+P(Y = 12) &= {20 \choose 12}(0.8)^{12}(1-0.8)^{20-12} = 0.02216087676\\
+P(Y = 13) &= {20 \choose 13}(0.8)^{13}(1-0.8)^{20-13} = 0.05454985049\\
+P(Y = 14) &= {20 \choose 14}(0.8)^{14}(1-0.8)^{20-14} = 0.10909970097\\
+P(Y = 15) &= {20 \choose 15}(0.8)^{15}(1-0.8)^{20-15} = 0.17455952156\\
+P(Y = 16) &= {20 \choose 16}(0.8)^{16}(1-0.8)^{20-16} = 0.21819940195\\
+P(Y = 17) &= {20 \choose 17}(0.8)^{17}(1-0.8)^{20-17} = 0.20536414301\\
+P(Y = 18) &= {20 \choose 18}(0.8)^{18}(1-0.8)^{20-18} = 0.13690942867\\
+P(Y = 19) &= {20 \choose 19}(0.8)^{19}(1-0.8)^{20-19} = 0.05764607523\\
+P(Y = 20) &= {20 \choose 20}(0.8)^{20}(1-0.8)^{20-20} = 0.01152921505\\
+P(Y \geq 10) &= 0.0020314137 + 0.00738695892 +0.02216087676 \\
+&+0.05454985049+0.10909970097+0.17455952156 \\
+&+0.21819940195+0.20536414301+0.13690942867 \\
+&+0.05764607523+0.01152921505 = \boxed{\approx0.999}
+\end{aligned}
+$$
+
+**c.**
+
+The probability that at least 14, but no more than 18 recover is
+
+$$
+\begin{aligned}
+P(14 \leq X \leq 18) &= P(Y =14) + P(Y=15) + P(Y=16) + P(Y=17) + P(Y=18) \\
+&= 0.10909970097+0.17455952156 +0.21819940195 \\
+&+0.20536414301+0.13690942867 = \boxed{\approx 0.844}
+\end{aligned}
+$$
+
+**d.**
+
+The probability that at most 16 recover is 
+
+$$
+\begin{aligned}
+P(X \leq 16) &= 1- P(X >16) \\
+&=1 -(P(17) + P(18) +P(19)+P(20)) \\
+&=1 -0.20536414301+0.13690942867 +0.05764607523 \\
+&+0.01152921505 = \boxed{\approx 0.589}
+\end{aligned}
+$$
+
+## 3.56
+
+Given the chance of success is 0.1, and there are 10 explorations, the mean number of successful explorations can be calculated as,
+
+$$
+\begin{aligned}
+\mu &= E(X) \\
+&= np\\
+&= 10*0.1\\
+&= \boxed{1}
+\end{aligned}
+$$
+
+The variance can be calculated as 
+
+$$
+\begin{aligned}
+\sigma^2&=V(X)\\
+&=np(1-p)\\
+&= 10*0.1*(1-0.1)\\
+&=\boxed{0.9}
+\end{aligned}
+$$
+
+
+## 3.60
+
+**a.**
+
+The probability that exactly 14 fish survive is given by the probability mass function from the binomial distribution
+
+$$
+\begin{aligned}
+P(X=14)&={20 \choose 14}*(0.8)^{14}*(0.2)^{20-14}\\
+&=\boxed{0.109}
+\end{aligned}
+$$
+
+**b.**
+
+The probability that at least 10 fish survive is
+
+$$
+\begin{aligned}
+P(X \geq 10)&=1-P(X>10)\\
+&=1-P(X \leq 9)\\
+&=1-\sum_{x = 0}^9{20 \choose x}(0.8)^x(0.2)^{20-x}\\
+&= \boxed{\approx 0.999}
+\end{aligned}
+$$
+
+**c.**
+
+The probability that at most 16 fish survive is
+
+$$
+\begin{aligned}
+P(X \leq 16) = \sum_{x =0}^{16}P(X \leq x)
+&= \boxed{\approx 0.589}
+\end{aligned}
+$$
+
+**d.**
+
+The mean number of fish that survive is $20*0.8 = \boxed{16}$.
+
+The variance of the number of fish that survive is $20*(0.8)(1-0.8) = \boxed{3.2}$
+
+
+## 3.66
+
+**a.**
+
+$$
+\begin{aligned}
+\sum_{y}p(y)&=\sum_{y=1}^\infty q^{y-1}p\\
+&=q^{1-1}p+q^{2-1}p+q^{3-1}p_...\\
+&=q^0p+qp+q^2p+...\\
+&= p(1+q+q^2+...) \\
+&= p*\frac{1}{1-q} \\
+&= p * \frac{1}{p} && \text{as } p+q=1\\
+&= \boxed{1}
+\end{aligned}
+$$
+
+**b.**
+
+Given that a random variable y is said to have a geometric probability distribution iff $p(y)=q^{y-1}p$
+
+$$
+\begin{aligned}
+\frac{p(y)}{p(y-1)}&= \frac{q^{y-1}p}{q^{y-2}p}\\
+&= \frac{q^{y-1}}{q^{y-2}} \\
+&= q^{y-1-(y-2)}\\
+&= q
+\end{aligned}
+$$
+
+Therefore the ratio is less than 1 implying that geometric probabilities are a monotonically decreasing function of Y, and that if Y has a geometric distribution the value of Y that is most likely is Y = 0. 
+
+That is to say for all possible values of p, $P(Y=1)=p$ is the largest probability that the distribution contains.
