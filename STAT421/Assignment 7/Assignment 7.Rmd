@@ -1,0 +1,101 @@
+---
+title: "STAT 421 \n Assignment #7"
+author: "Duncan Gates"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+output: 
+  prettydoc::html_pretty:
+    theme: tactile # Other options are cayman, tactile, architect, leonids, hpstr
+    highlight: vignette
+    math: katex #Instead of mathjax so it works offline
+documentclass: book
+classoption:
+  - twocolumn
+  - landscape
+papersize: a5
+linestretch: 1.5
+fontsize: 12pt
+links-as-notes: true
+header-includes:
+  - \usepackage{indentfirst}
+  - \usepackage{amsmath}
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+# library(pagedown)
+# setwd("/Users/dunk/Classes/STAT421/Assignment 7")
+# pagedown::chrome_print(input = "Assignment-7.html",
+#                       output = "Assignment7.pdf")
+```
+
+
+## 4.56
+
+
+
+## 4.59
+
+
+
+
+## 4.74
+
+
+
+## 4.88
+
+
+
+## 4.92
+
+
+
+## 4.96
+
+
+
+## 4.126
+
+
+
+## 4.134
+
+
+
+## 4.142
+
+
+
+
+## 4.190
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -4,7 +4,7 @@ author: "Duncan Gates"
 date: "`r format(Sys.time(), '%d %B, %Y')`"
 output: 
   prettydoc::html_pretty:
-    theme: hpstr # Other options are cayman, tactile, architect, leonids, hpstr
+    theme: leonids # Other options are cayman, tactile, architect, leonids, hpstr
     highlight: vignette
     math: katex #Instead of mathjax so it works offline
 documentclass: book
@@ -24,34 +24,158 @@ knitr::opts_chunk$set(echo = TRUE)
 # Reminder to fix 5 and 6 formatting, and do 10
 # library(pagedown)
 # setwd("/Users/dunk/Classes/MTH463/Homework 3")
-# pagedown::chrome_print(input = "Homework3.html",
+# pagedown::chrome_print(input = "Homework-3.html",
 #                       output = "Homework3.pdf")
 ```
 
 ## Problem 1
 
-Given $p_X(x)= \Bigg\{^\frac{1}{3} \frac{1}{2} _\frac{1}{6}}$
-
-
-
-
 
 $$
-
+\begin{aligned}
+E[X]&= 0*\frac{1}{3}+2*\frac{1}{2}+3*\frac{1}{6} \\
+&= \boxed{1.5} \\
+E[X^2]&=0^2*\frac{1}{3}+2^2*\frac{1}{2}+3^2*\frac{1}{6} \\
+&=\boxed{\frac{7}{2}} \\
+Var(X)&=E[X^2]-E[X]^2 \\
+&= \frac{7}{2}-\frac{9}{4} \\
+&= \boxed{\frac{5}{4}} \\
+E[X-E[X]]&=E[X-1.5] \\
+&=1.5\frac{1}{3}+0.5\frac{1}{2}+1.5\frac{1}{6} \\
+&= \boxed{1} \\
+E[2^X]&=2^0\frac{1}{3}+2^2\frac{1}{2}+2^3\frac{1}{6} \\
+&= \boxed{\frac{11}{3}}
+\end{aligned}
 $$
 
 
+## Problem 2
+
+$$
+\begin{aligned}
+E[\frac{1}{X+1}]&=\sum^\infty_{k=0} \frac{1}{k+1}e^{-\lambda}\frac{\lambda^k}{k!} \\
+&=e^{-\lambda}\sum^\infty_{k=0}\frac{\lambda^k}{(k+1)!} \\
+&=e^{-\lambda}\sum^\infty_{m=1}\frac{\lambda^{m-1}}{m} \\
+&\text{where m = k + 1} \\
+&=\frac{e^{-\lambda}}{\lambda}\sum^\infty_{m=1}\frac{\lambda^m}{m!} \\
+&=\frac{e^{-\lambda}}{\lambda}(e^\lambda-1) \\
+&= \boxed{\frac{1-e^\lambda}{\lambda}}
+\end{aligned}
+$$
+
+## Problem 3
+
+$$
+\begin{aligned}
+E[\frac{1}{X+1}]&=\sum^n_{k=0} {n \choose k} \frac{1}{k+1}p^k(1-p)^{n-k}\\
+&=\sum^n_{k=0} \frac{n!}{k!(n-k)!}*\frac{1}{k+1}p^k(1-p)^{n-k} \\
+&=\sum^n_{k=0} \frac{n!}{(k+1)!(n-k)!}p^k(1-p)^{n-k} \\
+&=\frac{1}{n+1} \sum^n_{k=0} \frac{(n+1)!}{(k+1)!(n-k)!}p^k(1-p)^{n-k} \\
+&=\frac{1}{n+1} \sum^n_{k=0} {n+1 \choose k+1}p^k(1-p)^{p-k} \\
+&=\frac{1}{n+1} \sum^n_{m=1} {n+1 \choose m} p^{m-1}(1-p)^{(n+1)-m} \\
+&\text{where m = k + 1} \\
+&=\frac{1}{(n+1)p} \sum^n_{m=1} {n+1 \choose m}p^m(1-p)^{(n+1)-m}\\
+&=\frac{1}{(n+1)p} \sum^n_{m=0} {n+1 \choose m}p^m(1-p)^{(n+1)-m - (1-p)^{n+1}} \\
+&=\frac{1}{(n+1)p} ((p+(1-p))^n+1-(1-p)^{n+1}) \\
+&=\boxed{\frac{1-(1-p)^{n+1}}{(n+1)^p}}
+\end{aligned}
+$$
+
+## Problem 4
+
+$$
+\begin{aligned}
+\sum_{j=1}^\infty P(X \geq j) &= \sum^\infty_{k=1} \sum^\infty_{j=1} P(X=k)\\
+&= \sum_{k=1}^\infty kP(X=k)\\
+&\text{since the double sum is the sum of all different integer pairs (j,k) such that} \\
+&=E[X]
+\end{aligned}
+$$
 
 
+## Problem 5
 
+$$
+\begin{aligned}
+P(W > j) &= \sum_{i = j+1}^\infty p(1-p)^{i-1} \\
+&=\sum_{k = 0}^\infty(1-p)^k \\
+&=p(1-p)^j*\frac{1}{1-(1-p)} \\
+&=(1-p)^j \\
+&\text{from the previous problem we have} \\
+E[W]&=\sum^\infty_{i=1}P(W \geq i) \\
+&=\sum^{+\infty}_{i=1}P(W>j) \\
+&=\sum^{+\infty}_{i=1}(1-p)^j \\
+&=\boxed{\frac{1}{p}}
+\end{aligned}
+$$
 
+## Problem 6
 
+$$
+\begin{aligned}
+E[a^X]&=a^1*p+a^{-1}*(1-p) \\
+&= 1 \\
+&\text{therefore,} \\
+& pa^2-a+(1-p)=0, \\
+&\text{so, } a = \frac{1 \pm \sqrt{1-4p(1-p)}}{2p}=\frac{1 \pm (2p -1)}{2p} \\
+&\text{which yields either 1 or } \frac{1}{1-p} \\
+&\text{so, } \boxed{a=\frac{1}{1-p}}
+\end{aligned}
+$$
 
+## Problem 7
 
+$$
+\begin{aligned}
+Var(X)&=E[X-\mu^2] \geq 0 \\
+&\text{therefore,} \\
+0 \leq Var(X) &= E[X^2]-E[X]^2 \\
+&\text{thus, } \\
+E[X^2] &\geq E[X]^2
+\end{aligned}
+$$
 
+## Problem 8
 
+We know that $E[aX+b]=aE[X]+b$, and
 
+$$
+\begin{aligned}
+E[Y]&=\frac{1}{\sigma}E[X-\frac{\mu}{\sigma}] \\
+&=\boxed{0}
+\end{aligned}
+$$
 
+Therefore using the definition of variance we have
+
+$$
+\begin{aligned}
+Var(Y)&=E[Y^2]-E[Y]^2 \\
+&=E[Y^2] \\
+&=E[\frac{(X-\mu)^2}{\sigma^2}] \\
+&=\frac{1}{\sigma^2}E[(X-\mu)^2] \\
+&= \frac{1}{\sigma^2}Var(X) \\
+&= \boxed{1}
+\end{aligned}
+$$
+
+## Problem 9
+
+We consider two separate binomial independent random variables, X as (3,p), and Y as (5,p). X obviously represents the 3-engine rocket while Y represents the 5-engine rocket. Thus we must find $P(X \ge 2) > P(Y \ge 3)$. The probability mass function of this is
+
+$$
+\begin{aligned}
+&{3 \choose 2}p^2(1-p)+{3 \choose 3}p^3> {5 \choose 3}p^3(1-p)^2+{5 \choose 4}p^4(1-p)+ {5 \choose 5}p^5 \\
+&\text{which reduces by dividing by } p^2 \\
+&3(1-p)+p>10p(1-p)^2+5p^2(1-p)+p^3 \\
+&3-3p > 10p-10p^3+5p^2-5p^3+p^3 \\
+&0 > (-6p^2+9p-3)(1-p) \\
+&0 >6(p-\frac{1}{2})(1-p) \\
+&\text{thus by factoring p < } \frac{1}{2}
+\end{aligned}
+$$
+
+For values of p where, $\boxed{p < \frac{1}{2}}$, a 3-engine rocket would be more reliable than a 5-engine rocket.
 
 
 

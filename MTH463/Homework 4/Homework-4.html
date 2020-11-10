@@ -14,47 +14,10 @@
 <meta name="author" content="Duncan Gates" />
 
 
-<title>MTH 463 Homework #3</title>
+<title>MTH 463 Homework #4</title>
 
-<style type="text/css">
-a.anchor-section {margin-left: 10px; visibility: hidden; color: inherit;}
-a.anchor-section::before {content: '#';}
-.hasAnchor:hover a.anchor-section {visibility: visible;}
-</style>
-<script>// Anchor sections v1.0 written by Atsushi Yasumoto on Oct 3rd, 2020.
-document.addEventListener('DOMContentLoaded', function() {
-  // Do nothing if AnchorJS is used
-  if (typeof window.anchors === 'object' && anchors.hasOwnProperty('hasAnchorJSLink')) {
-    return;
-  }
 
-  const h = document.querySelectorAll('h1, h2, h3, h4, h5, h6');
 
-  // Do nothing if sections are already anchored
-  if (Array.from(h).some(x => x.classList.contains('hasAnchor'))) {
-    return null;
-  }
-
-  // Use section id when pandoc runs with --section-divs
-  const section_id = function(x) {
-    return ((x.classList.contains('section') || (x.tagName === 'SECTION'))
-            ? x.id : '');
-  };
-
-  // Add anchors
-  h.forEach(function(x) {
-    const id = x.id || section_id(x.parentElement);
-    if (id === '') {
-      return null;
-    }
-    let anchor = document.createElement('a');
-    anchor.href = '#' + id;
-    anchor.classList = ['anchor-section'];
-    x.classList.add('hasAnchor');
-    x.appendChild(anchor);
-  });
-});
-</script>
 
 
 
@@ -107,9 +70,9 @@ code span.er { color: #a61717; background-color: #e3d2d2; }
 <div class="col s12 m3">
 <div class="table cover">
 <div class="cover-card table-cell table-middle">
-<span class="author_name">MTH 463 Homework #3</span>
+<span class="author_name">MTH 463 Homework #4</span>
 <span class="author_bio mbm">Duncan Gates</span>
-<span class="author_bio mbm">02 November, 2020</span>
+<span class="author_bio mbm">08 November, 2020</span>
 </div>
 </div>
 </div>
@@ -122,34 +85,54 @@ code span.er { color: #a61717; background-color: #e3d2d2; }
 <article class="post-content">
 <div id="problem-1" class="section level2">
 <h2>Problem 1</h2>
+<p>I check that f(x) is a probability density function by finding if the cumulative distribution function is 1</p>
 <p><span class="math display">\[
 \begin{aligned}
-E[X]&amp;= 0*\frac{1}{3}+2*\frac{1}{2}+3*\frac{1}{6} \\
-&amp;= \boxed{1.5} \\
-E[X^2]&amp;=0^2*\frac{1}{3}+2^2*\frac{1}{2}+3^2*\frac{1}{6} \\
-&amp;=\boxed{\frac{7}{2}} \\
-Var(X)&amp;=E[X^2]-E[X]^2 \\
-&amp;= \frac{7}{2}-\frac{9}{4} \\
-&amp;= \boxed{\frac{5}{4}} \\
-E[X-E[X]]&amp;=E[X-1.5] \\
-&amp;=1.5\frac{1}{3}+0.5\frac{1}{2}+1.5\frac{1}{6} \\
-&amp;= \boxed{1} \\
-E[2^X]&amp;=2^0\frac{1}{3}+2^2\frac{1}{2}+2^3\frac{1}{6} \\
-&amp;= \boxed{\frac{11}{3}}
+\int_{-\infty}^{\infty}f(x)dx&amp;=\int_{-2}^{\infty}\frac{8dx}{x^3} \\
+&amp;=\Bigg[\frac{8x^{-2}}{-2}\Bigg]_{2}^{\infty} \\
+&amp;= \boxed{1}
+\end{aligned}
+\]</span> So we know that f(x) is indeed a probability density function.</p>
+<p>To find <span class="math inline">\(P(X&gt;5)\)</span></p>
+<p><span class="math display">\[
+\begin{aligned}
+P(X&gt;5)&amp;=\int_{5}^{\infty}\frac{8dx}{x^3} \\
+&amp;= \Bigg[\frac{8x^{-2}}{-2}\Bigg]_{5}^{\infty} \\
+&amp;= \boxed{\frac{4}{25}}
+\end{aligned}
+\]</span></p>
+<p>To find <span class="math inline">\(E[X]\)</span> we use</p>
+<p><span class="math display">\[
+\begin{aligned}
+E[X]&amp;=\int_{-\infty}^{\infty}xf(x)dx \\
+&amp;=\int_{2}^{\infty}\frac{8dx}{x^2} \\
+&amp;=\Bigg[\frac{8x^{-1}}{-1}\Bigg]_{2}^{\infty} \\
+&amp;=\boxed{4}
 \end{aligned}
 \]</span></p>
 </div>
 <div id="problem-2" class="section level2">
 <h2>Problem 2</h2>
+<p>I find c by integrating knowing the probability density function is equal to 1</p>
 <p><span class="math display">\[
 \begin{aligned}
-E[\frac{1}{X+1}]&amp;=\sum^\infty_{k=0} \frac{1}{k+1}e^{-\lambda}\frac{\lambda^k}{k!} \\
-&amp;=e^{-\lambda}\sum^\infty_{k=0}\frac{\lambda^k}{(k+1)!} \\
-&amp;=e^{-\lambda}\sum^\infty_{m=1}\frac{\lambda^{m-1}}{m} \\
-&amp;\text{where m = k + 1} \\
-&amp;=\frac{e^{-\lambda}}{\lambda}\sum^\infty_{m=1}\frac{\lambda^m}{m!} \\
-&amp;=\frac{e^{-\lambda}}{\lambda}(e^\lambda-1) \\
-&amp;= \boxed{\frac{1-e^\lambda}{\lambda}}
+1&amp;=\int_{-\infty}^{\infty}f(x)dx \\
+&amp;= \int_{1}^{2}c(x-1)^4dx \\
+&amp;= \Bigg[\int_{1}^{2}\frac{c(x-1)^5}{5}\Bigg]_1^2 \\
+&amp;=\frac{c}{5} \\
+\text{therefore, } &amp;\boxed{ c=5}
+\end{aligned}
+\]</span></p>
+<p>To find <span class="math inline">\(E[X]\)</span> we have</p>
+<p><span class="math display">\[
+\begin{aligned}
+E[X]&amp;=\int_{-\infty}^{\infty}xf(x)dx \\
+&amp;=\int_{1}^{2}5x(x-1)^4dx \\
+&amp;=\int_{1}^{2}5((x-1)+1)(x-1)^4dx \\
+&amp;=\int_{1}^{2}5(x-1)^5dx+\int_{1}^{2}5(x-1)^4dx \\
+&amp;=\Bigg[\frac{5(x-1)^6}{6}\Bigg]_1^2+1 \\
+&amp;= \frac{5}{6}+1 \\
+&amp;= \boxed{\frac{11}{6}}
 \end{aligned}
 \]</span></p>
 </div>
@@ -157,17 +140,37 @@ E[\frac{1}{X+1}]&amp;=\sum^\infty_{k=0} \frac{1}{k+1}e^{-\lambda}\frac{\lambda^k
 <h2>Problem 3</h2>
 <p><span class="math display">\[
 \begin{aligned}
-E[\frac{1}{X+1}]&amp;=\sum^n_{k=0} {n \choose k} \frac{1}{k+1}p^k(1-p)^{n-k}\\
-&amp;=\sum^n_{k=0} \frac{n!}{k!(n-k)!}*\frac{1}{k+1}p^k(1-p)^{n-k} \\
-&amp;=\sum^n_{k=0} \frac{n!}{(k+1)!(n-k)!}p^k(1-p)^{n-k} \\
-&amp;=\frac{1}{n+1} \sum^n_{k=0} \frac{(n+1)!}{(k+1)!(n-k)!}p^k(1-p)^{n-k} \\
-&amp;=\frac{1}{n+1} \sum^n_{k=0} {n+1 \choose k+1}p^k(1-p)^{p-k} \\
-&amp;=\frac{1}{n+1} \sum^n_{m=1} {n+1 \choose m} p^{m-1}(1-p)^{(n+1)-m} \\
-&amp;\text{where m = k + 1} \\
-&amp;=\frac{1}{(n+1)p} \sum^n_{m=1} {n+1 \choose m}p^m(1-p)^{(n+1)-m}\\
-&amp;=\frac{1}{(n+1)p} \sum^n_{m=0} {n+1 \choose m}p^m(1-p)^{(n+1)-m - (1-p)^{n+1}} \\
-&amp;=\frac{1}{(n+1)p} ((p+(1-p))^n+1-(1-p)^{n+1}) \\
-&amp;=\boxed{\frac{1-(1-p)^{n+1}}{(n+1)^p}}
+1&amp;= \int_{-\infty}^{\infty}f(x)dx \\
+&amp;= \int_0^1(ax^2+bx)dx \\
+&amp;= \Bigg[ax^3\frac{1}{3}+bx^2\frac{1}{2}\Bigg] \\
+&amp;= \frac{1}{3}a+\frac{1}{2}b
+\end{aligned}
+\]</span></p>
+<p><span class="math display">\[
+\begin{aligned}
+0.75&amp;=E(X) \\
+&amp;=\int_{-\infty}^{\infty}xf(x)dx \\
+&amp;=\int_{0}^{1}(ax^3+bx^2)dx \\
+&amp;= \Bigg[a\frac{x^4}{4}+b\frac{x^3}{3}\Bigg]^1_0 \\
+&amp;=\frac{1}{4}a+\frac{1}{3}b
+\end{aligned}
+\]</span></p>
+<p>So we have <span class="math inline">\(1 = \frac{1}{3}a+\frac{1}{2}b\)</span> and <span class="math inline">\(0.75= \frac{1}{4}a+\frac{1}{3}b\)</span> which reduces to <span class="math inline">\(b=0, a = 3\)</span>.</p>
+<p>Therefore,</p>
+<p><span class="math display">\[
+\begin{aligned}
+E(X^2)&amp;=\int_{-\infty}^{\infty}x^2f(x)dx \\
+&amp;=\int_{1}^{0}3x^4dx \\
+&amp;= \frac{3x^5}{5}\Bigg|_0^1 \\
+&amp;= \boxed{\frac{3}{5}}
+\end{aligned}
+\]</span></p>
+<p>and,</p>
+<p><span class="math display">\[
+\begin{aligned}
+Var(X)&amp;= E(X^2)-E(X)^2 \\
+&amp;= \frac{3}{5} - {0.75}^2 \\
+&amp;= \boxed{0.0375}
 \end{aligned}
 \]</span></p>
 </div>
@@ -175,91 +178,58 @@ E[\frac{1}{X+1}]&amp;=\sum^n_{k=0} {n \choose k} \frac{1}{k+1}p^k(1-p)^{n-k}\\
 <h2>Problem 4</h2>
 <p><span class="math display">\[
 \begin{aligned}
-\sum_{j=1}^\infty P(X \geq j) &amp;= \sum^\infty_{k=1} \sum^\infty_{j=1} P(X=k)\\
-&amp;= \sum_{k=1}^\infty kP(X=k)\\
-&amp;\text{since the double sum is the sum of all different integer pairs (j,k) such that} \\
-&amp;=E[X]
+P(1&lt;X&lt;3)&amp;=\int_1^3F(x)dx \\
+&amp;=\int_{-\infty}^3F(x)dx- \int_{-\infty}^1F(x)dx \\
+&amp;=F(3)-F(1) \\
+&amp;= \frac{15}{6}-\frac{3}{4} \\
+&amp;= \boxed{\frac{3}{16}}
 \end{aligned}
 \]</span></p>
 </div>
 <div id="problem-5" class="section level2">
 <h2>Problem 5</h2>
+<p>Given <span class="math inline">\(4x^2+4xY-Y+6=0\)</span> with <span class="math inline">\(\lambda=3\)</span>, the roots of Y (<span class="math inline">\(\frac{-4Y \pm \sqrt{16Y^2+16(Y-6)}}{8}\)</span>) will only be positive iff <span class="math inline">\(16Y^2+16(Y-6) \ge 0\)</span>. So we need to find</p>
 <p><span class="math display">\[
 \begin{aligned}
-P(W &gt; j) &amp;= \sum_{i = j+1}^\infty p(1-p)^{i-1} \\
-&amp;=\sum_{k = 0}^\infty(1-p)^k \\
-&amp;=p(1-p)^j*\frac{1}{1-(1-p)} \\
-&amp;=(1-p)^j \\
-&amp;\text{from the previous problem we have} \\
-E[W]&amp;=\sum^\infty_{i=1}P(W \geq i) \\
-&amp;=\sum^{+\infty}_{i=1}P(W&gt;j) \\
-&amp;=\sum^{+\infty}_{i=1}(1-p)^j \\
-&amp;=\boxed{\frac{1}{p}}
+P(16Y^2+16(Y-6) \ge 0)&amp;=P(Y^2+Y-6 \ge 0) \\
+&amp;=P((Y+3)*(Y-2) \ge 0) \\
+&amp;=P(Y \le -3) + P(Y \ge 2) \\
+&amp;=0+e^{-2\lambda} \\
+&amp;= \boxed{e^{-6}}
 \end{aligned}
 \]</span></p>
 </div>
 <div id="problem-6" class="section level2">
 <h2>Problem 6</h2>
-<p><span class="math display">\[
-\begin{aligned}
-E[a^X]&amp;=a^1*p+a^{-1}*(1-p) \\
-&amp;= 1 \\
-&amp;\text{therefore,} \\
-&amp; pa^2-a+(1-p)=0, \\
-&amp;\text{so, } a = \frac{1 \pm \sqrt{1-4p(1-p)}}{2p}=\frac{1 \pm (2p -1)}{2p} \\
-&amp;\text{which yields either 1 or } \frac{1}{1-p} \\
-&amp;\text{so, } \boxed{a=\frac{1}{1-p}}
-\end{aligned}
-\]</span></p>
+$$
+<span class="math display">\[\begin{aligned}
+
+\end{aligned}\]</span>
+<p>$$</p>
 </div>
 <div id="problem-7" class="section level2">
 <h2>Problem 7</h2>
-<p><span class="math display">\[
-\begin{aligned}
-Var(X)&amp;=E[X-\mu^2] \geq 0 \\
-&amp;\text{therefore,} \\
-0 \leq Var(X) &amp;= E[X^2]-E[X]^2 \\
-&amp;\text{thus, } \\
-E[X^2] &amp;\geq E[X]^2
-\end{aligned}
-\]</span></p>
+$$
+<span class="math display">\[\begin{aligned}
+
+\end{aligned}\]</span>
+<p>$$</p>
 </div>
 <div id="problem-8" class="section level2">
 <h2>Problem 8</h2>
-<p>We know that <span class="math inline">\(E[aX+b]=aE[X]+b\)</span>, and</p>
-<p><span class="math display">\[
-\begin{aligned}
-E[Y]&amp;=\frac{1}{\sigma}E[X-\frac{\mu}{\sigma}] \\
-&amp;=\boxed{0}
-\end{aligned}
-\]</span></p>
-<p>Therefore using the definition of variance we have</p>
-<p><span class="math display">\[
-\begin{aligned}
-Var(Y)&amp;=E[Y^2]-E[Y]^2 \\
-&amp;=E[Y^2] \\
-&amp;=E[\frac{(X-\mu)^2}{\sigma^2}] \\
-&amp;=\frac{1}{\sigma^2}E[(X-\mu)^2] \\
-&amp;= \frac{1}{\sigma^2}Var(X) \\
-&amp;= \boxed{1}
-\end{aligned}
-\]</span></p>
+$$
+<span class="math display">\[\begin{aligned}
+
+\end{aligned}\]</span>
+<p>$$</p>
 </div>
 <div id="problem-9" class="section level2">
 <h2>Problem 9</h2>
-<p>We consider two separate binomial independent random variables, X as (3,p), and Y as (5,p). X obviously represents the 3-engine rocket while Y represents the 5-engine rocket. Thus we must find <span class="math inline">\(P(X \ge 2) &gt; P(Y \ge 3)\)</span>. The probability mass function of this is</p>
-<p><span class="math display">\[
-\begin{aligned}
-&amp;{3 \choose 2}p^2(1-p)+{3 \choose 3}p^3&gt; {5 \choose 3}p^3(1-p)^2+{5 \choose 4}p^4(1-p)+ {5 \choose 5}p^5 \\
-&amp;\text{which reduces by dividing by } p^2 \\
-&amp;3(1-p)+p&gt;10p(1-p)^2+5p^2(1-p)+p^3 \\
-&amp;3-3p &gt; 10p-10p^3+5p^2-5p^3+p^3 \\
-&amp;0 &gt; (-6p^2+9p-3)(1-p) \\
-&amp;0 &gt;6(p-\frac{1}{2})(1-p) \\
-&amp;\text{thus by factoring p &lt; } \frac{1}{2}
-\end{aligned}
-\]</span></p>
-<p>For values of p where, <span class="math inline">\(\boxed{p &lt; \frac{1}{2}}\)</span>, a 3-engine rocket would be more reliable than a 5-engine rocket.</p>
+$$
+<span class="math display">\[\begin{aligned}
+
+\end{aligned}\]</span>
+<p>$$</p>
 </div>
 </article>
 </div>
