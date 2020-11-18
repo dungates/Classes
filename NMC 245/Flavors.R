@@ -37,6 +37,7 @@ flavors4 <- flavors4 %>% mutate(fruit = if_else(
     str_detect(SOURCE, pattern = paste(meats,collapse = "|")),1,0),
   veggie = if_else(
     str_detect(SOURCE, pattern = paste(veggies,collapse = "|")),1,0))
+write_csv(flavors4, "/Users/dunk/Classes/NMC 245/flavors.csv")
 #flavors4 <- flavors4 %>% mutate(color = rowMeans(select(., 5:7)))
 flavors4 <- flavors4 %>% mutate(color = floor(runif(nrow(.), 1, 7)))
 

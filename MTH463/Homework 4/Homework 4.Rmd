@@ -22,7 +22,6 @@ header-includes:
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 # library(pagedown)
-# library(here)
 # setwd("/Users/dunk/Classes/MTH463/Homework 4")
 # pagedown::chrome_print(input = "Homework-4.html",
 #                       output = "Homework4.pdf")
@@ -183,7 +182,10 @@ Therefore $\tau(2)=1*\tau(1)=1!$
 
 $$
 \begin{aligned}
-
+E[X^k]&=\int_0^{\infty}(\frac{y}{\lambda})^ke^{-y}dy \\
+&=\frac{1}{\lambda^k}\int_0^{\infty}e^{-y}y^{(k+1)-1}dy \\
+&=\frac{\tau(k+1)}{\lambda^k} \\
+&=\frac{k!}{\lambda^k} 
 \end{aligned}
 $$
 
@@ -192,19 +194,28 @@ $$
 
 $$
 \begin{aligned}
-
+E[e^{-x}]&=\frac{1}{\tau(\alpha)}\int_0^{\infty}\lambda e^{-x}e^{-\lambda x}(\lambda x)^{\alpha -1}dx \\
+&=\frac{\lambda}{\tau(\alpha)}\int_0^{\infty}e^{-(\lambda + 1) x}(x)^{\alpha -1}dx && \text{Let } y = (\lambda + 1)x \\
+&=\frac{\lambda}{\tau(\alpha)}\int_0^{\infty}e^{-y}\frac{y^{\alpha - 1}}{(\lambda + 1)^{\alpha - 1}}\frac{1}{\lambda + 1}dy \\
+&=\Bigg(\frac{\lambda}{\lambda+1}\Bigg)^\alpha\frac{1}{\tau(\alpha)}\int_0^{\infty}e^{-y}y^{\alpha-1}dy \\
+&=\Bigg(\frac{\lambda}{\lambda+1}\Bigg)^\alpha
 \end{aligned}
 $$
 
 
 ## Problem 9
 
+We have $t>0$, $f(t)=\lambda e^{-\lambda t}$, $F(t)=1-e^{-\lambda t}$.
+
 $$
 \begin{aligned}
-
+h(t)&=\frac{f(t)}{1-F(t)} \\
+&=\frac{\lambda e^{-\lambda t}}{1-(1-e^{-\lambda t})} \\
+&= \lambda
 \end{aligned}
 $$
 
+The memorylessness property therefore makes it such that the "hazard rate" is constant at all times
 
 
 

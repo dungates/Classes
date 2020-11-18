@@ -21,7 +21,6 @@ header-includes:
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
 # library(pagedown)
 # setwd("/Users/dunk/Classes/STAT421/Assignment 7")
 # pagedown::chrome_print(input = "Assignment-7.html",
@@ -31,51 +30,405 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## 4.56
 
+In 4.7 the 30 minute arrival time has a unform distribution therefore we must find, 
 
+$$
+\begin{aligned}
+P(25 < Y < 30|Y > 10)&=\frac{\frac{1}{6}}{\frac{2}{3}} \\
+&= \boxed{\frac{1}{4}}
+\end{aligned}
+$$
 
-## 4.59
+## 4.59 
 
+I just typed all of these into my TI-83 hope that's alright.
 
+**a.**
+
+$$
+\begin{aligned}
+P(Z >z_0)&=0.5 \\
+z_0&=\boxed{0.5}
+\end{aligned}
+$$
+
+**b.**
+
+$$
+\begin{aligned}
+P(Z <z_0)&=0.8643 \\
+z_0&=\boxed{1.1}
+\end{aligned}
+$$
+
+**c.**
+
+$$
+\begin{aligned}
+P(-z_0<Z <z_0)&=0.9 \\
+z_0&=\boxed{1.645}
+\end{aligned}
+$$
+
+**d.**
+
+$$
+\begin{aligned}
+P(-z_0<Z <z_0)&=0.99 \\
+z_0&=\boxed{2.576}
+\end{aligned}
+$$
 
 
 ## 4.74
 
+**a.**
+
+$$
+\begin{aligned}
+P(Y >72)&=P(\frac{y-\mu}{\sigma}) \\
+&=P(\frac{72-78}{6}) \\
+&=P(z \ge -1) \\
+&=\boxed{0.8413}
+\end{aligned}
+$$
+
+**b.**
+
+$$
+\begin{aligned}
+0.9&=P(z \ge \frac{x-78}{6}) \\
+1.28&=\frac{x-78}{6} \\
+x&=\boxed{85.68}
+\end{aligned}
+$$
+
+**c.**
+
+$$
+\begin{aligned}
+0.281&=P(z \ge \frac{x-78}{6}) \\
+0.58&=\frac{x-78}{6} \\
+x&=\boxed{81.48}
+\end{aligned}
+$$
+
+**d.**
+
+$$
+\begin{aligned}
+0.25&=P(z \ge \frac{x-78}{6}) \\
+0.67&=\frac{x-78}{6} \\
+x&=73.98 \\
+P(Y>78.98)&=P(z \ge \frac{78.98-78}{6}) \\
+&=\boxed{0.4369}
+\end{aligned}
+$$
+
+**f.**
+
+$$
+\begin{aligned}
+P(Y > 84|Y >72)&=\frac{P(Y>84)}{P(Y>72)} \\
+&=\frac{P(z > 1)}{P(z > -1)} \\
+&= \frac{0.1587}{0.8413} \\
+&=\boxed{0.1886}
+\end{aligned}
+$$
 
 
 ## 4.88
 
+**a.**
 
+$$
+\begin{aligned}
+P(Y > 3)&=1-P(Y \le 3) \\
+&=1-\int_0^3f(y)\:dy \\
+&=1-\int_0^3(\frac{1}{2.4})e^{\frac{-y}{2.4}}\:dy \\
+&=1-\frac{2.4}{2.4}\Bigg[-e^{-3/2.4}-(-e^{-0/2.4})\Bigg] \\
+&=\boxed{e^{-1.25}}
+\end{aligned}
+$$
+
+**b.**
+
+$$
+\begin{aligned}
+P(2 < y < 3)&= \int_2^3(\frac{1}{2.4})e^{\frac{-y}{2.4}}\:dy \\
+&=\frac{2.4}{2.4}\Bigg[-e^{-3/2.4}-(-e^{-2/2.4})\Bigg] \\
+&=e^{-1.25}-(-e^{-.83}) \\
+&=\boxed{\approx0.1481}
+\end{aligned}
+$$
 
 ## 4.92
 
+Given $C=100+40Y+3Y^2$
 
+We find $E(Y)$ as 
+
+$$
+\begin{aligned}
+E(Y)&=\frac{1}{\mu} \\
+&=\frac{1}{(1/10)} \\
+&=10
+\end{aligned}
+$$
+and $E(Y^2)$
+
+$$
+\begin{aligned}
+E(Y^2)&=\int_0^{\infty}\frac{y^2}{10}e^\frac{-y}{10}dy \\
+&=\frac{1}{10}\Bigg(\frac{\tau(3)}{(1/10)^3}\Bigg) \\
+&=200 \\
+E(Y^3)&=\frac{1}{10}\Bigg(\frac{\tau(4)}{(1/10)^4}\Bigg) \\
+&=6000 \\
+E(Y^4)&=\frac{1}{10}\Bigg(\frac{\tau(3)}{(1/10)^5}\Bigg) \\
+&=240000
+\end{aligned}
+$$
+
+$$
+\begin{aligned}
+E(C)&=E(100+40Y+3Y^2) \\
+&=E(100)+40*E(Y)+3*E(Y^2) \\
+&=100+40*10+3*200 \\
+&=\boxed{1100}
+\end{aligned}
+$$
+
+$$
+\begin{aligned}
+V(C)&=E(C^2)-E(C)^2 \\
+&=E(100+40Y+3Y^2)^2-(1100)^2 \\
+&=E((100)^2+(40Y)^2+(3Y^2)^2+2(3Y^2*40Y)+2(40Y*100)+2(3Y^2*100))-(1100)^2 \\
+&=4,130,000-(1,100)^2 \\
+&=\boxed{2,920,000}
+\end{aligned}
+$$
 
 ## 4.96
 
+**a.**
 
+We have $\alpha = 4$ and $\beta = 2$ therefore,
+
+$$
+\begin{aligned}
+1 &= k\int_0^{\infty}y^3e^{-y/2}\:dy\\
+k&= \frac{1}{\tau(4)2^4} \\
+&=\boxed{\frac{1}{96}}
+\end{aligned}
+$$
+
+**b.**
+
+$$
+\begin{aligned}
+f(y)&=\frac{y^3e^{-y/2}}{96} \\
+&=\frac{y^{4-1}e^{-y/2}}{(2^4)(4-1)!} \\
+&=\frac{y^{\frac{8}{2}-1}e^{-y/2}}{(2^\frac{8}{2})\tau(\frac{8}{2})} \\
+&\text{and} f(\chi^2)=\frac{y^{\frac{n}{2}-1}e^{-y/2}}{(2^\frac{n}{2})\tau(\frac{n}{2})}
+\end{aligned}
+$$
+
+$$
+\begin{aligned}
+n&=2 \beta \\
+n&=8
+\end{aligned}
+$$
+
+So yes with 8 degrees of freedom.
+
+**c.**
+
+The mean can be calculated as
+
+$$
+\begin{aligned}
+E(Y)&=\alpha \beta \\
+&=\boxed{8}
+\end{aligned}
+$$
+
+The variance is 
+
+$$
+\begin{aligned}
+V(Y)&=\alpha \beta^2 \\
+&=\boxed{16}
+\end{aligned}
+$$
+
+**d.**
+
+$$
+\begin{aligned}
+\sigma&=\sqrt{V(X)} \\
+&=\sqrt{16} \\
+P(|Y-8|<2(4))&=P(0<Y<16) \\
+&=0.95762
+\end{aligned}
+$$
 
 ## 4.126
 
+**a.**
 
+$$
+\begin{aligned}
+F(y)&=P(Y \le y) \\
+&=\int_0^y(6t-6t^2)\:dt \\
+&=3y^2-2y^3
+\end{aligned}
+$$
+
+So we have the cumulative probability function 
+
+$$
+\begin{aligned}
+F(y)&= 
+\left\{
+\begin{array}{ll}
+      0 & y < 0 \\
+      3y^2-2y^3 & 0\leq y\leq 1 \\
+      1 & y > 1 \\
+\end{array} 
+\right.
+\end{aligned}
+$$
+
+**b.**
+
+```{r, echo = F}
+library(ggplot2)
+f <- function(x){ 
+  return(ifelse(0<= x & x<=1, 3*x^2-2*x^3,
+                        ifelse(x> 1, 1, 
+                               ifelse(x< 0, 0, 0))))}
+ggplot2::ggplot(data.frame(x = c(-1.25,1.25)), aes(x = x)) + stat_function(fun = f) + ggtitle("F(y)") + labs(x = "y", y = "F(y)")
+```
+
+```{r, echo = F}
+p <- function(x){ return(6*x-6*x^2)}
+ggplot2::ggplot(data.frame(x = c(0,1)), aes(x = x)) + stat_function(fun = p) + ggtitle("f(y)") + labs(x = "y", y = "f(y)")
+```
+
+
+**c.**
+
+$$
+\begin{aligned}
+P(0.5 \le Y \le 0.8)&=F(0.8)-F(0.5) \\
+&=1.92-1.092-0.75+0.25 \\
+&= \boxed{0.396}
+\end{aligned}
+$$
 
 ## 4.134
 
 
+**a.**
+
+Given $\alpha = 4$ and $\beta = 7$,
+
+$$
+\begin{aligned}
+P(Y \le 0.7)&=F(0.7) \\
+&=\sum_{i = 4}^{10}{10 \choose i}(0.7)^i(0.3)^{10-i} \\
+&=P(4 \le X \le 10) && \text{distributed binomially n = 10 and p = 0.7} \\
+&=\boxed{0.989}
+\end{aligned}
+$$
+
+**b.**
+
+$$
+\begin{aligned}
+P(Y \le 0.6)&=F(0.6) \\
+&=\sum_{i = 4}^{10}{10 \choose i}(0.6)^i(0.4)^{10-i} \\
+&=P(12 \le X \le 25) && \text{distributed binomially n = 25 and p = 0.6} \\
+&=\boxed{0.922}
+\end{aligned}
+$$
 
 ## 4.142
 
+**a.**
 
+$$
+\begin{aligned}
+m_Y(t)&=E(e^{ty}) \\
+&=\int_0^1e^{ty}\:dy \\
+&=\boxed{\frac{e^t-1}{t}}
+\end{aligned}
+$$
 
+**b.**
+
+Given $W=aY$
+
+$$
+\begin{aligned}
+m_W(t)&=E(e^{tw}) \\
+&=m_Y(at) \\
+&=\boxed{\frac{e^{at}-1}{at}}
+\end{aligned}
+$$
+
+**c.**
+
+Given $W=-aY$,
+
+$$
+\begin{aligned}
+m_W(t)&=E(e^{tw}) \\
+&=m_Y(-at) \\
+&=\boxed{\frac{1-e^{-at}}{at}}
+\end{aligned}
+$$
+
+**d.**
+
+Given $V=aY+b$
+
+$$
+\begin{aligned}
+m_V(t)&=E(e^{tv}) \\
+&=E(e^{t(ay+b)}) \\
+&=e^{bt}E(e^{aty}) \\
+&=e^{bt}*m_Y(at) \\
+&=\boxed{\frac{e^{bt}-e^{(a+b)t}}{at}}
+\end{aligned}
+$$
 
 ## 4.190
 
+**a.**
+
+$$
+\begin{aligned}
+r(t)&=\frac{f(t)}{1-F(t)} \\
+&=\frac{\lambda e^{-\lambda t}}{1-1+e^{-\lambda t}} \\
+&=\lambda
+\end{aligned}
+$$
 
 
+**b.**
 
+For a Weibull function with $m > 1$,
 
+$$
+\begin{aligned}
+r(t)&=\frac{\frac{my^{m-1}}{\alpha}e^{-y^m/ \alpha}}{1-1+e^{-y^m/ \alpha}} \\
+&= \frac{mt^{m-1}}{\alpha}
+\end{aligned}
+$$
 
-
-
+Therefore $r(t)$ is an increasing function of t when $m > 1$
 
 
 

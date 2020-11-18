@@ -1,0 +1,136 @@
+---
+title: "STAT 421 \n Assignment #8"
+author: "Duncan Gates"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+output: 
+  prettydoc::html_pretty:
+    theme: tactile # Other options are cayman, tactile, architect, leonids, hpstr
+    highlight: vignette
+    math: katex #Instead of mathjax so it works offline
+documentclass: book
+classoption:
+  - twocolumn
+  - landscape
+papersize: a5
+linestretch: 1.5
+fontsize: 12pt
+links-as-notes: true
+header-includes:
+  - \usepackage{indentfirst}
+  - \usepackage{amsmath}
+---
+
+```{r setup, include=FALSE}
+# library(pagedown)
+# setwd("/Users/dunk/Classes/STAT421/Assignment 8")
+# pagedown::chrome_print(input = "Assignment-8.html",
+#                       output = "Assignment8.pdf")
+```
+
+
+
+## 5.9
+
+**a.**
+
+$$
+\begin{aligned}
+1&= \int_0^1 \int_0^{y_2} k(1-y_2)dy_1dy_2 \\
+&=k\int_0^1 \Bigg[y_2-\frac{1}{2}y_2^2dy_2\Bigg]_0^{y_2}dy_1
+&= \\
+\end{aligned}
+$$
+
+## 5.16
+
+$$
+\begin{aligned}
+
+\end{aligned}
+$$
+
+## 5.9
+
+$$
+\begin{aligned}
+
+\end{aligned}
+$$
+
+## 5.24
+
+$$
+\begin{aligned}
+
+\end{aligned}
+$$
+
+## 5.38
+
+$$
+\begin{aligned}
+
+\end{aligned}
+$$
+
+## 5.48
+
+$$
+\begin{aligned}
+
+\end{aligned}
+$$
+
+## 5.68
+
+$$
+\begin{aligned}
+
+\end{aligned}
+$$
+
+## 5.72
+
+$$
+\begin{aligned}
+
+\end{aligned}
+$$
+
+## 5.84
+
+$$
+\begin{aligned}
+
+\end{aligned}
+$$
+
+## 5.94
+
+$$
+\begin{aligned}
+
+\end{aligned}
+$$
+
+## 5.100
+
+$$
+\begin{aligned}
+
+\end{aligned}
+$$
+
+
+
+
+
+
+
+
+
+
+
+
+
+
