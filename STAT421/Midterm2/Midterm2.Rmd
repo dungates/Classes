@@ -1,0 +1,316 @@
+---
+title: "Midterm #2"
+author: "Duncan Gates"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+output: 
+  prettydoc::html_pretty:
+    theme: tactile # Other options are cayman, tactile, architect, leonids, hpstr
+    highlight: vignette
+    math: katex #Instead of mathjax so it works offline
+documentclass: book
+classoption:
+  - twocolumn
+  - landscape
+papersize: a5
+linestretch: 1.5
+fontsize: 12pt
+links-as-notes: true
+header-includes:
+  - \usepackage{indentfirst}
+  - \usepackage{amsmath}
+---
+
+```{r setup, include=FALSE}
+library(pagedown)
+setwd("/Users/dunk/Classes/STAT421/Midterm2")
+pagedown::chrome_print(input = "Midterm2.html",
+                      output = "Midterm2.pdf")
+```
+
+## Question 1
+
+The length of life of oil-drilling bits depends upon the type of rock and soil that the
+drill encounters, but it is estimated that the mean length of life is 75 hours. An oil exploration
+company purchases drill bits whose lengths of life is approximately normally distributed with
+mean 75 hours and standard deviation 12 hours. The company operates the drill bits 24 hours a
+day. 
+
+### 1. What proportion of the company’s drill bits will fail before 60 hours of use?
+
+Given that the length of life of the drill bits is normally distributed with $\mu= 75$ hours and $\sigma = 12$ hours, we have
+
+$$
+\begin{aligned}
+P(Y<60)&=P(\frac{Y-\mu}{\sigma}<\frac{60-75}{\sigma}) \\ 
+&=P(\frac{Y-75}{12}<\frac{60-75}{12}) \\
+&= P(Z)<-1.25 \\
+&= \boxed{0.1056} \;\;\text{according to R}
+\end{aligned}
+$$
+
+### 2. What proportion of the company's drill bits will last at least 60 hours
+
+$$
+\begin{aligned}
+P(Y>60)&=P(\frac{Y-\mu}{\sigma}>\frac{60-75}{\sigma}) \\ 
+&=P(\frac{Y-75}{12}>\frac{60-75}{12}) \\
+&= P(Z)>-1.25 \\
+&= \boxed{.8944} \;\;\text{according to R}\\
+&\text{This result can also be reached with } 1-0.1056
+\end{aligned}
+$$
+
+### 3. What proportion of the company's drill bits will have to be replaced after more than 90 hours of use?
+
+$$
+\begin{aligned}
+P(Y>90)&=P(\frac{Y-\mu}{\sigma}>\frac{90-75}{\sigma}) \\ 
+&=P(\frac{Y-75}{12}>\frac{90-75}{12}) \\
+&= P(Z)>1.25 \\
+&= \boxed{0.1056} \;\;\text{according to R}\\
+\end{aligned}
+$$
+
+### 4. If the company starts the week operating 10 wells with brand new bits, what is the probability that operation of at least 2 wells will have to stop after 2 days because the drill bits have failed? 
+
+The probability that 2 drill bits fail after 2 days (48 hours) is,
+
+$$
+\begin{aligned}
+P(Y>48)&=P(Z>\frac{x-\mu}{\sigma}) \\ 
+&=P(Z>\frac{48-75}{12}) \\
+&= P(Z)>-2.25 \\
+&= 0.9878 \;\;\text{according to R}\\
+\end{aligned}
+$$
+
+I do not know how to do the rest of this.
+
+
+
+## Question 2
+
+Let (X, Y) denote the coordinates of a point selected at random inside the unit circlewhose center is at the origin. That is, X and Y have a joint density function given by $$f(x,y)=\frac{1}{\pi} \text{when } x^2+y^2\le 1 \text{ and 0 otherwise}$$ 
+
+
+### 1. Find P(Y>X).
+
+The total probability of the unit circle is 1, and each point on the circle has an equal probability of $\frac{1}{\pi}$. The probability that $P(Y>X)$ is therefore the integral of half of the circle
+
+```{r echo = FALSE, message = FALSE}
+library(tidyverse)
+# Define the circle; add a point at the center if the 'pie slice' if the shape is to be filled
+circleFun <- function(center=c(0,0), diameter=1, npoints=100, start=0, end=2, filled=TRUE){
+  tt <- seq(start*pi, end*pi, length.out=npoints)
+  df <- data.frame(
+    x = center[1] + diameter / 2 * cos(tt),
+    y = center[2] + diameter / 2 * sin(tt)
+  )
+  if(filled==TRUE) { #add a point at the center so the whole 'pie slice' is filled
+    df <- rbind(df, center)
+  }
+  return(df)
+}
+
+#Define separate data frames for the filled and unfilled circle
+quarterCircle <- circleFun(c(1,-1), diameter = 2.3, start=0., end=1.0, filled=TRUE)
+fullCircle <- circleFun(c(1, -1), 2.3, start=0, end=2, filled=FALSE)
+
+ggplot() + 
+  geom_polygon(data=quarterCircle, aes(x,y), color="black", fill="black") + 
+  geom_path(data=fullCircle, aes(x, y), color="black") +
+  coord_equal() +
+  theme(axis.text = element_blank())
+```
+
+
+, thus
+
+$$
+\begin{aligned}
+P(Y>X)&=\frac{1}{2}
+\end{aligned}
+$$
+
+### 2. Compute the marginal densities of X and Y.
+
+The marginal densities of X and Y are,
+
+$$
+\begin{aligned}
+f_Y(y)&=\int_0^1 \frac{1}{\pi}dy \\
+&=\Bigg[\frac{y}{\pi}\Bigg]_0^1 \\
+&=\boxed{\frac{1}{\pi}} \\
+f_X(x)&=\int_0^1 \frac{1}{\pi}dx \\
+&=\Bigg[\frac{x}{\pi}\Bigg]_0^1 \\
+&=\boxed{\frac{1}{\pi}} \\
+\end{aligned}
+$$
+
+### 3. Argue that X and Y are not independent.
+
+If X and Y are independent random variables then $Cov(X, Y)= 0$. We know that $Cov(X, Y)= E(XY)-\mu_1\mu_2$
+
+$$
+\begin{aligned}
+E(XY)&=\int_{0}^{1}\int_{0}^{1}xy\frac{1}{\pi}dxdy \\
+&=\frac{1}{\pi}\int_{0}^{1}\int_{0}^{1}xy\:dxdy \\
+&=\frac{1}{\pi}\int_{0}^{1}\Bigg[\frac{1}{2}x^2y\Bigg]_0^1dy \\
+&=\frac{1}{\pi}\Bigg[\frac{1}{4}x^2y^2\Bigg]_0^1 \\
+&= \frac{1}{4\pi}
+\end{aligned}
+$$
+
+$$
+\begin{aligned}
+E(X)&=\int_{0}^{1}\int_{0}^{1}x\frac{1}{\pi}dxdy \\
+&=\frac{1}{\pi}\int_{0}^{1}\Bigg[\frac{x^2}{2} \Bigg]_0^1dy \\
+&=\frac{1}{\pi}\int_{0}^{1}\frac{1}{2}dy \\
+&=\frac{1}{\pi}\Bigg[\frac{y}{2} \Bigg]_0^1 \\
+&= \frac{1}{2\pi}
+\end{aligned}
+$$
+
+$$
+\begin{aligned}
+E(Y)&=\int_{0}^{1}\int_{0}^{1}y\frac{1}{\pi}dxdy \\
+&=\frac{1}{\pi}\int_{0}^{1}\Bigg[xy \Bigg]_0^1dy \\
+&=\frac{1}{\pi}\int_{0}^{1}ydy \\
+&=\frac{1}{\pi}\Bigg[\frac{y^2}{2} \Bigg]_0^1 \\
+&= \frac{1}{2\pi}
+\end{aligned}
+$$
+
+$$
+\begin{aligned}
+Cov(X, Y)&= E(XY)-\mu_1\mu_2 \\
+E(XY)&=\frac{1}{4\pi} \text{ and }\mu_1,\mu_2=\frac{1}{2\pi} \\
+\frac{1}{4\pi}&\ne\frac{1}{2\pi}*\frac{1}{2\pi}
+\end{aligned}
+$$
+
+Therefore X and Y are not independent.
+
+### 4. Compute E(XY) and Cov(X,Y)
+
+**THIS IS DONE ABOVE**
+
+### 5. Compute the conditional density of Y|X = x and E(Y|X=0)
+
+Using the calculations above
+
+$$
+\begin{aligned}
+P(Y|X=x)&=\frac{P(X=x, Y=y)}{P(X=x)} \\
+&= \frac{\frac{1}{2\pi}^2}{\frac{1}{2\pi}} \\
+&=\frac{\pi}{2\pi^2}
+\end{aligned}
+$$
+
+and,
+
+$$
+\begin{aligned}
+E(Y|X=0)&= 0\\
+\end{aligned}
+$$
+
+
+## Problem 3
+
+### 1. Find c that makes f(y) a density function. 
+
+$$
+\begin{aligned}
+1&=\int_{-\infty}^{\infty}f(y)dy \\
+&=\int_0^{\infty}cye^{-2y}dy \\
+\text{Let } &u = cy \text{ and } dv=e^{-2y}dy \\
+&=cy\frac{e^{-2y}}{2}\Bigg|_0^{\infty} - c\int_0^{\infty}\frac{e^{-2y}}{-2}dy \\
+&=0+c\int_0^{\infty}\frac{1}{2}e^{-2y}dy \\
+&=c\Bigg[\frac{e^{-2y}}{-4} \Bigg]_0^{\infty} \\
+c&=\boxed{4}
+\end{aligned}
+$$
+
+### 2. Compute P(Y>t) and P(Y>t+s|Y>t). Does the distribution of Y have the memoryless property? Integration by parts may help here. 
+
+We see that Y is a gamma density function that therefore takes the shape $\frac{y^{\alpha-1}e^{-y/\beta}}{\beta^{\alpha}\tau(\alpha)}$ with $\alpha = 2$, $\beta = 0.5$. Therefore,
+
+$$
+\begin{aligned}
+P(Y>t)&=\int_t^{\infty}4ye^{-2y}dy \\
+&=4\int_t^{\infty}ye^{-2y}dy \\
+\text{Let } &u = y \text{ and } dv = e^{-2y}dy \\
+&= 2e^{-2y}y\Bigg|_t^{\infty} + 2\int_t^{\infty}e^{-2y}dy \\
+&=2e^{-2t}t+2\int_t^{\infty}e^{-2y}dy \\
+\text{Let } u& = -2y \\
+&=2e^{-2t}t+\int_{-2t}^{\infty}-e^udu \\
+&=2e^{-2t}+e^{2t} \\
+&= e^{-2t}(2t+1)
+\end{aligned}
+$$
+
+$$
+\begin{aligned}
+P(Y>t+s)&=\int_{t+s}^{\infty}4ye^{-2y}dy \\
+&=4\int_{t+s}^{\infty}ye^{-2y}dy \\
+\text{Let } &u = y \text{ and } dv = e^{-2y}dy \\
+&= 2e^{-2y}y\Bigg|_{t+s}^{\infty} + 2\int_{t+s}^{\infty}e^{-2y}dy \\
+&=2e^{-2(t+s)}(t+s)+2\int_{t+s}^{\infty}e^{-2y}dy \\
+\text{Let } u& = -2y \\
+&=2e^{-2(t+s)}(t+s)+2\int_{-2t-2s}^{\infty}-e^udu \\
+&=2e^{-2(t+s)}(t+s)+ 2*\frac{1}{2}e^{-2(s+t)}\\
+&= 2e^{-2(t+s)}(t+s)+e^{-2(s+t)} \\
+&=e^{-2(s+t)}(2s+2t+1)
+\end{aligned}
+$$
+
+So we have,
+
+$$
+\begin{aligned}
+P(Y>t+s|Y>t)&=\frac{e^{-2(s+t)}(2s+2t+1)}{e^{-2t}(2t+1)} \\
+&=\frac{e^{-2s}(2s+2t+1)}{2t+1}
+\end{aligned}
+$$
+
+Which does not appear to have the memoryless property.
+
+### 3. Compute the moment generating function for Y.
+
+The moment generating function of a gamma random variable is $M(t)=(\frac{1}{1-\beta t})^{\alpha}$ if $t > \frac{1}{\beta}$ so we have,
+
+$$
+\begin{aligned}
+M_Y(t)&=(\frac{1}{1-\frac{1}{2}t})^{2} \\
+&= \frac{4}{(2-t)^2}
+\end{aligned}
+$$
+
+### 4. Suppose that X & Y are independent random variables with density f(y). Compute the moment generating function of X + Y. Can you recognize the distribution of X + Y? 
+
+The moment generating function of Y is calculated above and we know that $M(t) = E(e^{tY} )$, therefore
+
+$$
+\begin{aligned}
+M_{X+Y}(t)&=E(e^{t(X+Y)}) \\
+&=E(e^{tx})*E(e^{ty}) \\
+&=M_Y(t)^2 \\
+M_Y(t)^2&=\Bigg(\frac{4}{(2-t)^2}\Bigg)^2 \\
+&=\frac{16}{(2-t)^4}
+\end{aligned}
+$$
+
+Using $M(t)=(\frac{1}{1-\beta t})^{\alpha}$ we therefore find that $\alpha = 4$, and $\beta = \frac{1}{2}$, another gamma distribution function.
+
+
+
+
+
+
+
+
+
+
+
+

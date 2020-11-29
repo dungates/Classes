@@ -4,7 +4,7 @@ author: "Duncan Gates"
 date: "`r format(Sys.time(), '%d %B, %Y')`"
 output: 
   prettydoc::html_pretty:
-    theme: tactile # Other options are cayman, tactile, architect, leonids, hpstr
+    theme: cayman # Other options are cayman, tactile, architect, leonids, hpstr
     highlight: vignette
     math: katex #Instead of mathjax so it works offline
 documentclass: book
@@ -21,7 +21,6 @@ header-includes:
 ---
 
 ```{r setup, include=FALSE}
-# library(pagedown)
 # setwd("/Users/dunk/Classes/STAT421/Assignment 8")
 # pagedown::chrome_print(input = "Assignment-8.html",
 #                       output = "Assignment8.pdf")
@@ -36,95 +35,463 @@ header-includes:
 $$
 \begin{aligned}
 1&= \int_0^1 \int_0^{y_2} k(1-y_2)dy_1dy_2 \\
-&=k\int_0^1 \Bigg[y_2-\frac{1}{2}y_2^2dy_2\Bigg]_0^{y_2}dy_1
-&= \\
+&=k\int_0^1 \Bigg[y_1(-y_2+1)\Bigg]_0^{y_2}dy_2 \\
+&= k \int_0^1 y_2(-y_2+1)dy_2\\
+&= k\Bigg[ -\frac{1}{3}y_2^3+\frac{1}{2}y_2^2 \Bigg]_0^1 \\
+&= \frac{k}{6} \\
+&\boxed{k= 6}
+\end{aligned}
+$$
+
+**b.**
+
+$$
+\begin{aligned}
+P(Y_1 \le \frac{3}{4}, Y_2 \ge \frac{1}{2})&=\int_{\frac{1}{2}}^1\int^1_\frac{1}{2}6(1-y_2)dy_1dy_2+\int_{\frac{1}{2}}^{\frac{3}{4}}\int^1_{y_2}6(1-y_2)dy_2dy_1 \\
+&=6\int_{\frac{1}{2}}^1\frac{1-y_2}{2}dy_2+6\int_{\frac{1}{2}}^{\frac{3}{4}}\frac{3}{32}dy_1 \\
+&=\frac{24}{64}+\frac{7}{64} \\
+&= \boxed{\frac{31}{64}}
 \end{aligned}
 $$
 
 ## 5.16
 
+**a.**
+
 $$
 \begin{aligned}
-
+P(Y_1<\frac{1}{2}, Y_2>\frac{1}{4})&=\int_{\frac{1}{4}}^1\int_0^{\frac{1}{2}}(y_1+y_2)dy_1dy_2 \\
+&= \int_{\frac{1}{4}}^1 \frac{1}{2}y_2 + \frac{1}{8}dy_2 \\
+&= \int_{\frac{1}{4}}^1 \frac{1}{2}y_2 + \frac{1}{8}\\
+&= \frac{1}{2}\int_{\frac{1}{4}}^1y\:dy_2 + \frac{15}{64}\\
+&= \frac{1}{8}-\frac{1}{8*4}+\frac{15}{64} \\
+&= \boxed{\frac{21}{64}}
 \end{aligned}
 $$
 
-## 5.9
+**b.**
 
 $$
 \begin{aligned}
-
+P(Y_1+Y_2 \le 1)&=P(Y_1 \le 1 - Y_2) \\
+P(Y_1 \le 1 - Y_2)&=\int_{0}^1\int_0^{1-y_2}(y_1+y_2)dy_1dy_2 \\ 
+&= \boxed{\frac{1}{3}}
 \end{aligned}
 $$
 
 ## 5.24
 
+**a.**
+
 $$
 \begin{aligned}
-
+f_{Y_1}(y_1)&=\int_0^11dy_2 \\
+&=[y_2]^1_0 \\
+&=1 \\
+f_{Y_2}(y_2)&=\int_0^11dy_1 \\
+&=[y_1]^1_0 \\
+&=1
 \end{aligned}
 $$
+
+So, 
+$$
+\begin{aligned}
+\boxed{f_{Y_1}(y_1)=1;\: 0 \le y_1 \le 1} \\
+\boxed{f_{Y_2}(y_2)=1;\: 0 \le y_1 \le 1} \\
+\end{aligned}
+$$
+
+**b.**
+
+$$
+\begin{aligned}
+P(0.3<Y_1<0.5)&=\int_{0.3}^{0.5}f_{Y_1}(y_1)dy_1 \\
+&=\int_{0.3}^{0.5}1\:dy_1 \\
+&= \boxed{0.2} \\
+P(0.3<Y_2<0.5) \text{ is the same integral} &\text{ so we also have }\\
+P(0.3<Y_2<0.5) &= \boxed{0.2}
+\end{aligned}
+$$
+
+**c.**
+
+$$
+\begin{aligned}
+f_{Y_1|Y_2}(y_1|y_2)&=\frac{f(y_1,y_2)}{f(y_2)} \\
+&= 1 \\
+&\text{Where} \\
+&0<y_1<1 \\
+&0<y_2<1 \\
+&\text{therefore,} \\
+&\boxed{0 \le y_2 \le 1}
+\end{aligned}
+$$
+
+**d.**
+
+$$
+\begin{aligned}
+f(y_1|y_2)&= \frac{f(y_1,y_2)}{f(Y_2=y_2)} \\
+&=1 \\
+f(y_1)&=1 \\
+&\text{therefore,} \\
+&\boxed{0 \le y_1 \le 1}
+\end{aligned}
+$$
+
+**e.**
+
+$$
+\begin{aligned}
+P(0.3 < Y_1<0.5|Y_2=0.3)&=\int_{0.3}^{0.5}f(y_1|Y_2=0.3)dy_1 \\
+&=\int_{0.3}^{0.5}1dy_1 \\
+&= 0.5 - 0.3 \\
+&= \boxed{0.2}
+\end{aligned}
+$$
+
+**f.**
+
+$$
+\begin{aligned}
+P(0.3 < Y_1<0.5|Y_2=0.5)&=\int_{0.3}^{0.5}f(y_2|Y_1=0.5)dy_2 \\
+&=\int_{0.3}^{0.5}1dy_2 \\ 
+&= \boxed{0.2}
+\end{aligned}
+$$
+
+**g.**
+
+Since we know $f(y_1)=f(y_1|Y_2=y_2)$. Since $f(y_1|Y_2=y_2)$ is independent of $y_2$. Therefore the answers are the same.
+
 
 ## 5.38
 
+**a.**
+
+The joint density function for $Y_1$ and $Y_2$ has the limits $0 \le y_2 \le y_1 \le 1$, therefore the marginal density function of $Y_2$ is given by
+
 $$
 \begin{aligned}
-
+f(y_2)&=\int_{y_1}^1f(y_1,y_2) \\
+&=\int_{y_1}^1\frac{1}{y_1}dy_1 \\
+&=\Bigg[ln(y_1) \Bigg] \\
+&=-ln(y_2) \\
+\text{Therefore, } f(y_2)&= 
+\begin{cases} 
+      -ln(y_2), \;\;0 \le y_2 \le 1 \\
+      0,\;\;\;\;\;\;\;\;\;\;\;\; \text{otherwise}
+\end{cases} \\
+f(y_1,y_2)&=f(y_2|y_1)f(y_1) \\
+&= \frac{1}{y_1}*1 \\
+&= \boxed{\begin{cases} 
+      1/y_1, \;\;0 \le y_2 \le y_1, 0 \le y_1 \le 1 \\
+      0,\;\;\;\;\;\;\;\;\;\;\;\; \text{otherwise}
+\end{cases}}
 \end{aligned}
 $$
 
-## 5.48
+**b.**
 
 $$
 \begin{aligned}
+P(Y_2 > \frac{1}{4}|Y_1=\frac{1}{2})&=\int_{\frac{1}{4}}^{\frac{1}{2}}f(y_2|Y_1=\frac{1}{2})dy_2 \\
+&=\int_{\frac{1}{4}}^{\frac{1}{2}}\frac{1}{(1/2)}dy_2 \\
+&= 2\int_{\frac{1}{4}}^{\frac{1}{2}}dy_2 \\
+&=2(\frac{1}{2}-\frac{1}{4})\\
+&=\boxed{\frac{1}{2}}
+\end{aligned}
+$$
 
+There is a 1 in 2 chance that she sells more than a quarter ton given the supplier stocks a half ton of the item.
+
+**c.**
+
+$$
+\begin{aligned}
+P(Y_2 > \frac{1}{2}|Y_1=\frac{1}{4})&=\int_{\frac{1}{2}}^{1}f(y_1|Y_2=\frac{1}{4})dy_1 \\
+&=\int_{\frac{1}{2}}^{1}\frac{-1}{y_1*ln(\frac{1}{4})}dy_1 \\
+&=-\frac{1}{ln(4)}*[ln(y_1)]_{\frac{1}{2}}^1 \\
+&= \frac{1}{1.3863}*(ln(1-ln(\frac{1}{2}))) \\
+&= \boxed{\frac{1}{2}}
+\end{aligned}
+$$
+
+Therefore the probability that she has stocked more than a half ton given that the supplier sold a quarter ton is 1 out of 2.
+
+## 5.48
+
+Given that $Y_1$ and $Y_2$ are independent we have
+
+$$
+\begin{aligned}
+p(Y_1=0, Y_2=0)&=p(Y_1=0)p(Y_2=0) \\
+0.38&=0.55(0.76) \\
+&= 0.418 \\
+0.38&\neq0.418 \\
+\text{Therefore, } Y_1 &\text{ and } Y_2 \text{ are not independent.}
 \end{aligned}
 $$
 
 ## 5.68
 
+**a.**
+
+For $(Y_1,Y_2)=(0,0)$ the joint probability is:
+
 $$
 \begin{aligned}
+p(Y_1,Y_2)&=p_1(y_1)(y_2) \\
+&={2 \choose y_1} (.2)^{y_1}(1-0.2)^{2-y_1}*{1 \choose y_2}(0.3)^{y_2}(1-0.3){1-y_2} \\
+&= \frac{2!}{0!2!}*\frac{1!}{0!1!}*0.2^0*0.3^0*0.8^2*0.7^1 \\
+&= \boxed{0.448} \\
+\end{aligned}
+$$
 
+For $(Y_1,Y_2)=(1,0)$ the joint probability is:
+
+$$
+\begin{aligned}
+&= \frac{2!}{1!1!}*\frac{1!}{0!1!}*0.2^1*0.3^0*0.8^1*0.7^1 \\
+&= \boxed{0.224} \\
+\end{aligned}
+$$
+
+For $(Y_1,Y_2)=(2,0)$ the joint probability is:
+
+$$
+\begin{aligned}
+&= \frac{2!}{0!2!}*\frac{1!}{0!1!}*0.2^2*0.3^0*0.8^0*0.7^1 \\
+&= \boxed{0.028} \\
+\end{aligned}
+$$
+
+For $(Y_1,Y_2)=(0,1)$ the joint probability is:
+
+$$
+\begin{aligned}
+&= \frac{2!}{0!2!}*\frac{1!}{0!1!}*0.2^0*0.3^1*0.8^2*0.7^0 \\
+&= \boxed{0.192} \\
+\end{aligned}
+$$
+
+For $(Y_1,Y_2)=(1,1)$ the joint probability is:
+
+$$
+\begin{aligned}
+&= \frac{2!}{1!1!}*\frac{1!}{0!1!}*0.2^1*0.3^1*0.8^1*0.7^0 \\
+&= \boxed{0.096} \\
+\end{aligned}
+$$
+
+For $(Y_1,Y_2)=(2,1)$ the joint probability is:
+
+$$
+\begin{aligned}
+&= \frac{2!}{2!0!}*\frac{1!}{0!1!}*0.2^2*0.3^1*0.8^0*0.7^0 \\
+&= \boxed{0.012} \\
+\end{aligned}
+$$
+
+**b.**
+
+The probability of interest is 
+
+$$
+\begin{aligned}
+P(Y_1+Y_2 \le 1)&=p(0,0)+p(1,0)+p(0,1) \\
+&= \boxed{0.864}
 \end{aligned}
 $$
 
 ## 5.72
 
+**a.**
+
 $$
 \begin{aligned}
+E(Y_1)&=\sum y_1p(y_1) \\
+&=0*\frac{4}{9}+1*\frac{4}{9}+2*\frac{1}{9} \\
+&= \boxed{\frac{2}{3}}
+\end{aligned}
+$$
 
+**b.**
+
+$$
+\begin{aligned}
+E(Y_1)^2&=\sum y_1^2p(y_1) \\
+&=0^2*\frac{4}{9}+1^2*\frac{4}{9}+2^2*\frac{1}{9} \\
+&= \boxed{\frac{8}{9}}
+\end{aligned}
+$$
+
+**c.**
+
+$$
+\begin{aligned}
+V(Y_1)&=E(Y_1)^2-E(Y_1^2) \\
+&= \frac{8}{9} - (\frac{2}{3})^2 \\
+&=\boxed{\frac{4}{9}}
 \end{aligned}
 $$
 
 ## 5.84
 
+**a.**
+
 $$
 \begin{aligned}
+E(Y_1)&=\frac{1}{p} \\
+E(Y_2)&=\frac{1}{p} \\
+E(Y_1-Y_2)&=E(Y_1)-E(Y_2) \\
+&=\frac{1}{p}-\frac{1}{p} \\
+&= \boxed{0}
+\end{aligned}
+$$
 
+**b.**
+
+$$
+\begin{aligned}
+E(Y_1^2)&=\boxed{\frac{2-p}{p^2}} \\
+E(Y_2^2)&=\boxed{\frac{2-p}{p^2}} \\
+\end{aligned}
+$$
+
+**c.**
+
+$$
+\begin{aligned}
+E(Y_1-Y_2)^2&= E(Y_1^2)+E(Y_2^2)-2E(Y_1Y_2) \\
+&=\frac{2-p}{p^2} + \frac{2-p}{p^2} - \frac{2}{p^2} \\
+&=\frac{2(1-p)}{p^2} \\
+V(Y_1-Y_2)&=V(Y_1^2)+V(Y_2^2)-0 \\
+&=(E(Y_1^2)-E(Y_1)^2) + (E(Y_2^2)-E(Y_2)^2) \\
+&= \Bigg(\frac{2-p}{p^2}-\frac{1}{p^2}\Bigg)+\Bigg(\frac{2-p}{p^2}-\frac{1}{p^2} \Bigg)\\
+&=\boxed{\frac{2(1-p)}{p^2}}
+\end{aligned}
+$$
+
+**d.**
+
+Applying Chebyshev's theorem with k = 3 we have 
+
+$$
+\begin{aligned}
+\text{Limits} &= \mu \pm3\sigma \\
+&=\frac{2(1-p)}{p^2}\pm3\Bigg(\frac{\sqrt{2(1-p)}}{p} \Bigg) \\
+&=\boxed{\Bigg(\frac{2(1-p)}{p^2}-3\Bigg(\frac{\sqrt{2(1-p)}}{p} \Bigg), \frac{2(1-p)}{p^2}+3\Bigg(\frac{\sqrt{2(1-p)}}{p} \Bigg)\Bigg)}
 \end{aligned}
 $$
 
 ## 5.94
 
+**a.**
+
+Given,
+
 $$
 \begin{aligned}
-
+Cov(Y_1,Y_2)&= E [(Y1 -\mu_1)(Y2 -\mu_2)]  \\
+&= E(Y1Y2)- E(Y1)E(Y2) \\
+&\text{therefore,} \\
+Cov(U_1, U_2) &= E [(U_1 -\mu_1)(U_2 -\mu_2)]  \\
+&= E(U_1U_2)- E(U_1)E(U_2) 
 \end{aligned}
 $$
+
+So, substituting $U_1, U_2$ we have
+
+$$
+\begin{aligned}
+Cov(U_1, U_2)&=E((Y_1+Y_2)(Y_1-Y_2))-E(Y_1+Y_2)E(Y_1-Y_2) \\
+&=E(Y_1^2-Y_2^2)-(E(Y_1)^2-E(Y_2)^2)^2 \\
+\end{aligned}
+$$
+
+and we know that $E(Y_1)=\mu_1$, $E(Y_2)=\mu_2$, $\sigma = E((X-\mu)^2)$, so we have
+
+$$
+\begin{aligned}
+E(Y_1^2-Y_2^2)-(E(Y_1)^2-E(Y_2)^2)^2&=(\sigma_1^2+\mu_1^2)-(\sigma_2^2+\mu_2^2)-(\mu_1^2-\mu_2^2)^2 \\
+&=\boxed{\sigma_1^2-\sigma_2^2}
+\end{aligned}
+$$
+
+**b.**
+
+Given that $p(U_1,U_2)=\frac{Cov(U_1,U_2)}{\sqrt{Var(U_1)}\sqrt{Var(U_2)}}$ we have
+
+$$
+\begin{aligned}
+\frac{\sigma_1^2-\sigma_2^2}{\sqrt{\sigma_1^2+\sigma_2^2}\sqrt{\sigma_1^2-\sigma_2^2}}=\boxed{\frac{\sigma_1^2-\sigma_2^2}{\sigma_1^2-\sigma_2^2}}
+\end{aligned}
+$$
+
+**c.**
+
+It is possible for $Cov(U_1,U_2)=0$, this occurs when there is no correlation between $U_1$ and $U_2$, which is to say mathematically, when $\sigma_1^2=\sigma_2^2$.
 
 ## 5.100
 
+**a.**
+
+As Z is a standard normal random variable is has $\mu =0, \sigma = 1$. Given that $Y_1=Z$, and $Y_2=Z^2$
+
 $$
 \begin{aligned}
-
+E(Y_1) &=E(Z) \\
+&=\boxed{0} \\
+E(Y_2)&=E(Z^2) \\
+&=1+0 \\
+&=\boxed{1}
 \end{aligned}
 $$
 
+**b.**
 
+$$
+\begin{aligned}
+E(Y_1Y_2)&=E(Z^3) \\
+&=\int_{-\infty}^{\infty}z^3f(z)dz && \text{all infinitely bounded odd functions integrate to 0} \\
+&=\boxed{0}
+\end{aligned}
+$$
 
+**c.**
 
+$$
+\begin{aligned}
+Cov(Y_1,Y_2)&=E(Z^3)-E(Z)E(Z^2) \\
+&= \boxed{0}
+\end{aligned}
+$$
 
+**d.**
+
+Given that $P(Y2 > 1|Y1 > 1) = 1$, we have that
+
+$$
+\begin{aligned}
+P(Y_2 > 1|Y_1 > 1) &= 1 \\
+P(Z^2 > 1|Z > 1) &= 1
+\end{aligned}
+$$
+
+and by definition for 2 events to be independent $P(A|B)=P(A)$, but $P(Z^2>1\ne1)$ since
+
+$$
+\begin{aligned}
+P(Y_2 > 1|Y_1 > 1) &= 1 \\
+\Rightarrow \frac{P(Y_2 > 1|Y_1 > 1)}{P(Y_1>1)}&=1 &&\text{by } P(A|B)=P(A) \\
+P(Y_2 > 1|Y_1 > 1)&=P(Y_1>1) \\
+&\ne P(Y_2>1)*P(Y_1>1)
+\end{aligned}
+$$
+
+and therefore $Y_1$ and $Y_2$ are dependent.
 
 
 
