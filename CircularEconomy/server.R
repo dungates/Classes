@@ -6,11 +6,11 @@ server <-function(input, output){
       ggplot(aes(x=Year,y=Tons)) +
       geom_line(colour = "#007f7f", size = 1) +
       geom_point(aes(color=Tons)) +
-      bbplot::bbc_style() +
-      ggtitle('Global Plastic Production') +
+      theme_ipsum() +
+      ggtitle('Global Plastic Production (1950-2010)') +
       scale_y_continuous(labels = function(y) paste(y, "Million Tons")) +
       theme(legend.position = "none",
-            axis.text.y = element_text()) +
+            plot.title = element_text(hjust = 0.5)) +
     labs(subtitle = "1950-2015 in Millions of Tons")
     ggplotly(global_plastic_production) %>% 
       layout(width="100%")
@@ -51,7 +51,7 @@ server <-function(input, output){
       xlab('GDP per capita, PPP') + 
       ylab('Per capita plastic waste') +
       labs(color = "Continent") +
-      ggtitle('Per capita plastic waste vs. GDP per capita, 2010') +
+      ggtitle('Per capita plastic waste vs. GDP per capita') +
       hrbrthemes::theme_ipsum()
     
     ggplotly(bubble_GDP_WastePC, tooltip="text")
@@ -73,7 +73,7 @@ server <-function(input, output){
       xlab('GDP per capita, PPP') + 
       ylab('Per capita mismanaged plastic waste') +
       labs(fill = "Continent") +
-      ggtitle('Per capita mismanaged plastic waste vs. GDP per capita, 2010') +
+      ggtitle('Per capita mismanaged plastic waste vs. GDP per capita') +
       hrbrthemes::theme_ipsum()
     
     ggplotly(bubble_GDP_WastePC2, tooltip="text")
@@ -89,14 +89,14 @@ server <-function(input, output){
       mutate(text = paste("Country: ", Country, "\nPopulation (M): ", Ppl, "\nMismanaged plastic waste: ", Mismanaged, "\nCoastal population: ", Coastal.Ppl, sep="")) %>%
       ggplot(aes(log10(x = Coastal.Ppl), y = log(Mismanaged, base = exp(10)), color = Continent, size = Ppl, text=text),tooltip="text") + 
       geom_point(alpha = 0.5) +
-      geom_smooth(method = "lm") +
-      ylim(0.40, 1.6) +
+      geom_smooth(method = "glm", formula = y~x, family = gaussian(link = 'log')) +
+      ylim(0.40, 1.8) +
       scale_color_manual(values = c("#00AFBB", "#FC4E07", "#E7B800","#CC6666", "#9999CC", "#66CC99","#FF6666")) +
       scale_size(range = c(0.5, 10)) +  # Adjust the range of points size
       xlab('Coastal population') + 
       ylab('Mismanaged plastic waste') +
       labs(fill = "Continent") +
-      ggtitle('Mismanaged plastic waste vs. coastal population, 2010') +
+      ggtitle('Mismanaged plastic waste vs. coastal population') +
       hrbrthemes::theme_ipsum()
     
     ggplotly(bubble_GDP_WastePC3, tooltip="text")
@@ -245,7 +245,7 @@ server <-function(input, output){
                                                     `Inadequately Managed Waste Share` = Inadequately.Managed.Waste.Share, 
                                                     `Avg 3 Year GDP Growth` = Avg.3Y.GDP.Growth, 
                                                     `Economic Status` = Eco) %>%
-    relocate(`Plastic Waste Per Capita`, .after = `GDP Per Capita`) %>%
+    relocate(c("Plastic Waste Per Capita", "GDP Per Capita", "Plastic Waste Generation Total"), .after = Country) %>%
     mutate(`GDP Per Capita` = round(`GDP Per Capita`, digits = 2),
            `Avg 3 Year GDP Growth` = round(`Avg 3 Year GDP Growth`, digits = 2))
   brks1 <- quantile(variables$`GDP Per Capita`, probs = seq(.05, .95, .05), na.rm = TRUE)
@@ -258,7 +258,7 @@ server <-function(input, output){
   clrs3 <- viridis::viridis(n=length(brks2)+1, alpha=.5, direction = -1)
   
   output$variablesTable <- DT::renderDataTable({
-    datatable(variables, rownames = F) %>%
+    datatable(variables, rownames = F, options = list(scrollX = TRUE)) %>%
       formatStyle('Country', background="skyblue", fontWeight='bold') %>%
       formatStyle('GDP Per Capita', backgroundColor = styleInterval(brks1, clrs1)) %>%
       formatStyle('Plastic Waste Per Capita', backgroundColor = styleInterval(brks2, clrs2)) %>%

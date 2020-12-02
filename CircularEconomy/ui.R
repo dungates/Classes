@@ -1,14 +1,15 @@
 shinyUI(
   dashboardPage(
     #header + skin + sidebar panel#### 
-    skin = 'green',
+    skin = 'blue',
     dashboardHeader(
-      title = "Plastic Pollution"
+      title = "Circular Economy"
     ),
     #sidebar panel 
     dashboardSidebar(
       sidebarMenu(
         menuItem("Introduction", tabName = "intro", icon = icon("dove")),
+        menuItem("Data", tabName = "data", icon = icon("table")),
         menuItem("Visualization", tabName = "explore", icon = icon("map")),
         menuItem("Analysis", tabName = "analysis", icon = icon("chart-line")),
         menuItem("Conclusion", tabName = "conc", icon = icon("box-open"))
@@ -17,11 +18,13 @@ shinyUI(
     
     #Introduction####
     dashboardBody(
+      tags$head(tags$link(rel = "shortcut icon", href = "favicon.ico")),
       tabItems(
         #Intro
         tabItem(
           tabName = 'intro',
           fluidPage(
+            theme = shinytheme("united"),
             tags$head(tags$style(HTML("
                                 h2 {
                                   text-align: center;
@@ -51,8 +54,7 @@ shinyUI(
                                 }
                                 "))),
             box(
-              background = 'light-blue',
-              h2('Exploratory Data Analysis: Plastic Production and Pollution'),
+              h2('Data Analysis: Plastic Production and Pollution'),
               h3('Plastic pollution has exploded globally over the last 70 years'),
               tags$p("In 1950, the world produced 2 million tons of plastic per year. In 2015 it produced 381 million tons, a 381x increase. 
                      The sheer waste from this production is breathtaking - an estimated 8.3 billion tons of plastic have been produced since 1950, and only 9%
@@ -69,7 +71,7 @@ shinyUI(
               tags$p("- The average time that a plastic bag is used for is 12 minutes, while it takes around 500 years to bio-degrade in the ocean."),
               tags$p("- Plastic is killing more than 1.1 million seabirds and animals every year and suffering astronomical number of animals."),
               tags$p("- The pollution eventually return to us - The average person eats 70,000 microplastics each year."),
-              tags$p("- Enough plastic is thrown away each year to circle the earth four times."),
+              tags$p("- Enough plastic is thrown away each year to circle the earth four times each year."),
               div(img(src="https://ourworldindata.org/exports/decomposition-rates-marine-debris_v2_850x600.svg"
                   ,width="50%"), align = "center"),
               h3('Video: Plastic Ocean'),
@@ -78,26 +80,32 @@ shinyUI(
               h3('Plastic Waste has a Log-Linear Relationship with GDP'),
               div(tags$iframe(src="https://ourworldindata.org/grapher/per-capita-plastic-waste-vs-gdp-per-capita?time=latest", width = "100%", height = "600px"), 
                   align = "center"),
-              h3('Dataset Variables:'),
-              DT::dataTableOutput("variablesTable"),
-              tags$p('Colors in table represent magnitude: Darker (purple) is higher and lighter (yellow) is lower.'),
-              h4('Notes:'),
-              tags$p("Mismanaged waste: Material that is either littered or inadequately disposed (the sum of littered and inadequately disposed waste), 
-                     which could eventually enter the ocean via inland waterways, wastewater outflows, and transport by wind or tides and has much higher 
-                     risk of entering the ocean and contaminating the environment."),
-              tags$p("Inadequately managed waste: Waste is not formally managed and includes disposal in dumps or open, uncontrolled landfills, 
-                     where it is not fully contained. Inadequately managed waste has high risk of polluting rivers and oceans. This does not include 'littered' 
-                     plastic waste, which is approximately 2% of total waste."),
-              tags$p('**Proceed to next page with the sidebar.**'),
+              div(tags$b('**Proceed to next page with the sidebar.**'), align = "center"),
               width = 12
               )
             )
           ),
+        #Data####
+        tabItem(tabName = "data",
+                fluidPage(
+                  box(
+                    h3('Dataset Variables:'),
+                    DT::dataTableOutput("variablesTable"),
+                    tags$p('Colors in table represent magnitude: Darker (purple) is higher and lighter (yellow) is lower.'),
+                    h4('Notes:'),
+                    tags$p("Mismanaged waste: Material that is either littered or inadequately disposed (the sum of littered and inadequately disposed waste), 
+                     which could eventually enter the ocean via inland waterways, wastewater outflows, and transport by wind or tides and has much higher 
+                     risk of entering the ocean and contaminating the environment."),
+                    tags$p("Inadequately managed waste: Waste is not formally managed and includes disposal in dumps or open, uncontrolled landfills, 
+                     where it is not fully contained. Inadequately managed waste has high risk of polluting rivers and oceans. This does not include 'littered' 
+                     plastic waste, which is approximately 2% of total waste."),
+                    width = "100%"
+                  )
+                )),
         #Explore####
         tabItem(tabName = "explore",
                 fluidPage(
                   box(
-                    background = 'light-blue',
                     h2('Explore Global Plastic Pollution'),
                 fluidRow(column(4, 
                                 selectizeInput(inputId = "selected", 
@@ -124,18 +132,15 @@ shinyUI(
                 tabsetPanel(type = 'tabs',
                             tabPanel('Analysis about Plastic Waste',
                                      fluidRow(box(
-                                              background = 'light-blue',
-                                              h2("Plastic waste tends to increase as people and countries get richer"),
+                                              h2("Economic development status and growth have significant impact on plastic waste, 
+                                                 and generally a positive association"),
                                               plotlyOutput("bubbleGDPWastePC"),
                                               tags$p("Note: x-axis takes log10 as base."),
-                                              tags$p("Note**: 0 represents missing value"),
                                               h3("The plastic waste per person in developed countries are significantly greater than developing countries"),
                                               div(plotlyOutput("boxplot4"), align = "center"),
-                                              tags$p("Note: 0 represents missing value"),
                                               width=12))),
                             tabPanel('Analysis about Mismanaged Plastic Waste',
                                      fluidRow(box(
-                                              background = 'light-blue',
                                               h2("Mismanaged plastic waste tends to be higher in industrialized middle-income and fast-growing developing countries"),
                                               tags$p("Waste management infrastructure has failed to keep pace with rapid industrial and manufacturing growth."),
                                               tags$p("Therefore, development of effective waste management infrastructure in middle-income and 
@@ -152,7 +157,6 @@ shinyUI(
                                               width=12))),
                             tabPanel('Analysis about Coastal Population and Geographical Feature',
                                      fluidRow(box(
-                                              background = 'light-blue',
                                               h2("Costal population has a positive correlation with mismanaged plastic waste across counties."),
                                               plotlyOutput("bubbleGDPWastePC3"),
                                               tags$p("Note: Coastal population is measured as the population within 50 kilometres of a coastline"),
@@ -167,23 +171,36 @@ shinyUI(
         tabItem(tabName = "conc",
                 fluidRow(
                   box(
-                  background = 'light-blue',
                   h2("Main Takeaways for the Circular Economy"),
-                  tags$p("- Plastic waste tends to increase as people and countries get richer"),
+                  tags$p("Economic development status and growth have significant impact on plastic waste."),
                   tags$p(" "),
-                  tags$p("- Mismanaged plastic waste tends to be higher in industrialized middle-income and fast-growing developing countries. Because their waste management infrastructure has failed to keep pace with their rapid industrial and manufacturing growth. And they import massive quantities of plastic trashes from developed countries which is also the reason why developed countries have such a small amount of mismanaged plastic waste while having a great amount of plastic waste. Therefore, development of effective waste management infrastructure in middle-income and growing lower-income countries is crucial to tackling the issue of plastic pollution. And developing countries should reject receiving trashes from developed countries to prompt them to cut down waste and improve recycling."),
+                  tags$p("There are two levels to the circular economy here, one involves intra-country waste management where waste is simply being dumped into the ocean instead of re-used in any meaningful way. The other is inter-country, there is a lot of waste going between countries, developed economies tend to dump off onto developing countries leading to a very linear relationship in waste that oftentimes ends in the ocean. Mismanaged plastic waste is also higher in industrialized middle-income and quickly-growing developed countries because their waste management infrastructure development has not kept pace with rapid industrial and manufacturing growth. While importing massive quantities of plastic from developed countries, or producing them in the case of industrializing countries, they do not balance the other side of the equation with waste management."),
                   tags$p(" "),
-                  tags$p("- Costal population has a positive correlation with mismanaged plastic waste across counties. And coastal countries have much higher mismanaged plastic waste per person than landlocked countries. Because waste generated in coastal region has higher risk of entering the ocean and producing severe environmental damage."),
+                  tags$p("Coastal populations tend to have more mismanaged plastic waste than other countries 
+                         than landlocked countries, this is primarily because it is easier to dump waste into the ocean,
+                         an important question moving forward is whether that waste is primarily sourced from
+                         within the country itself or if it is from landlocked countries, and whether countries
+                         are simply finding other, less easily tracked ways of dumping when oceans are not available
+                         receptacles."),
                   width = 12),
                   box(
+                    # div(img(src="CircEcon.png", width="50%"), align = "centered"),
+                    # div(img(src="plastic-fate-605x550.png", width="50%"), align = "centered"),
+                    HTML('<left><img src="CircEcon.png" width="550"></left>'),
+                    HTML('<right><img src="plastic-fate-605x550.png" width="550"></right>'),
+                    width = 12
+                  ),
+                  box(
+                    div(tags$p("Update Coming Soon."), align = "center"),
                     br(),
                     br(),
                     radioButtons('select_market',"Select Market",inline = TRUE,
                                  choices = c("East","West","South","North"),
                                  selected = 'East'),
                     
-                    div(chorddiagOutput("distPlot", height = 600), align = "center") # Make this shit center
-                  )
+                    chorddiagOutput("distPlot", height = 600),
+                    width = 12
+                    )
                   
                 )
               )

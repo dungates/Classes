@@ -1,5 +1,6 @@
 ## global.R ##
 library(shinydashboard)
+library(shinythemes)
 library(plotly)
 library(DT)
 library(shiny)
@@ -9,6 +10,7 @@ library(dplyr)
 library(forcats)
 library(bbplot)
 library(chorddiag)
+library(hrbrthemes)
 options(scipen=999)
 # read csv
 plastic <- read.csv("./plastic.csv", stringsAsFactors = FALSE)
