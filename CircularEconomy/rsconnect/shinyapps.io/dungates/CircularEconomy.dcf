@@ -1,0 +1,12 @@
+name: CircularEconomy
+title: CircularEconomy
+username:
+account: dungates
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 3333223
+bundleId: 3930890
+url: https://dungates.shinyapps.io/CircularEconomy/
+when: 1606879225.10627
+asMultiple: FALSE
+asStatic: FALSE

@@ -123,7 +123,7 @@ code span.er { color: #a61717; background-color: #e3d2d2; }
 <div class="cover-card table-cell table-middle">
 <span class="author_name">MTH 463 Homework #5</span>
 <span class="author_bio mbm">Duncan Gates</span>
-<span class="author_bio mbm">24 November, 2020</span>
+<span class="author_bio mbm">01 December, 2020</span>
 </div>
 </div>
 </div>
@@ -182,54 +182,17 @@ E[e^z]&amp;=\int_{-\infty}^{\infty}f_Z(x)dx \\
 &amp;= \boxed{\sqrt{e}}
 \end{aligned}
 \]</span></p>
-<p>To find <span class="math inline">\(E[X]\)</span> we have</p>
-<p><span class="math display">\[
-\begin{aligned}
-E[X]&amp;=\int_{-\infty}^{\infty}xf(x)dx \\
-&amp;=\int_{1}^{2}5x(x-1)^4dx \\
-&amp;=\int_{1}^{2}5((x-1)+1)(x-1)^4dx \\
-&amp;=\int_{1}^{2}5(x-1)^5dx+\int_{1}^{2}5(x-1)^4dx \\
-&amp;=\Bigg[\frac{5(x-1)^6}{6}\Bigg]_1^2+1 \\
-&amp;= \frac{5}{6}+1 \\
-&amp;= \boxed{\frac{11}{6}}
-\end{aligned}
-\]</span></p>
 </div>
 <div id="problem-3" class="section level2">
 <h2>Problem 3</h2>
 <p><span class="math display">\[
 \begin{aligned}
-1&amp;= \int_{-\infty}^{\infty}f(x)dx \\
-&amp;= \int_0^1(ax^2+bx)dx \\
-&amp;= \Bigg[ax^3\frac{1}{3}+bx^2\frac{1}{2}\Bigg] \\
-&amp;= \frac{1}{3}a+\frac{1}{2}b
-\end{aligned}
-\]</span></p>
-<p><span class="math display">\[
-\begin{aligned}
-0.75&amp;=E(X) \\
-&amp;=\int_{-\infty}^{\infty}xf(x)dx \\
-&amp;=\int_{0}^{1}(ax^3+bx^2)dx \\
-&amp;= \Bigg[a\frac{x^4}{4}+b\frac{x^3}{3}\Bigg]^1_0 \\
-&amp;=\frac{1}{4}a+\frac{1}{3}b
-\end{aligned}
-\]</span></p>
-<p>So we have <span class="math inline">\(1 = \frac{1}{3}a+\frac{1}{2}b\)</span> and <span class="math inline">\(0.75= \frac{1}{4}a+\frac{1}{3}b\)</span> which reduces to <span class="math inline">\(b=0, a = 3\)</span>.</p>
-<p>Therefore,</p>
-<p><span class="math display">\[
-\begin{aligned}
-E(X^2)&amp;=\int_{-\infty}^{\infty}x^2f(x)dx \\
-&amp;=\int_{1}^{0}3x^4dx \\
-&amp;= \frac{3x^5}{5}\Bigg|_0^1 \\
-&amp;= \boxed{\frac{3}{5}}
-\end{aligned}
-\]</span></p>
-<p>and,</p>
-<p><span class="math display">\[
-\begin{aligned}
-Var(X)&amp;= E(X^2)-E(X)^2 \\
-&amp;= \frac{3}{5} - {0.75}^2 \\
-&amp;= \boxed{0.0375}
+V(X+Y)&amp;=E[(X+Y)^2]-(E[X+Y])^2 \\
+&amp;=E[X^2+2XY+Y^2]-(E[X]+E[Y])^2 \\
+&amp;=E[X^2]-(E[X])^2+E[Y^2]-2E[XY]+2E[X]E[Y] \\
+&amp;=E[X^2]-(E[X])^2-(E[Y])^2 \\
+&amp;\text{We know }E[X*Y]=E[X]*E[Y] \text{, so} \\
+&amp;=\boxed{Var(X)+Var(Y)}
 \end{aligned}
 \]</span></p>
 </div>
@@ -237,76 +200,73 @@ Var(X)&amp;= E(X^2)-E(X)^2 \\
 <h2>Problem 4</h2>
 <p><span class="math display">\[
 \begin{aligned}
-P(1&lt;X&lt;3)&amp;=\int_1^3F(x)dx \\
-&amp;=\int_{-\infty}^3F(x)dx- \int_{-\infty}^1F(x)dx \\
-&amp;=F(3)-F(1) \\
-&amp;= \frac{15}{6}-\frac{3}{4} \\
-&amp;= \boxed{\frac{3}{16}}
+f_{x_1+x_2+x_3}(a)&amp;=\int_{-\infty}^{\infty}f_{x_1+x_2}(x)f_{x_3}(a-x) \\
+&amp;=\int_0^1xf_{x)3}(a-x)dx+\int_1^2(2-x)f_{x_3}(a-x)dx \\
+&amp;=  \begin{cases} 
+      \int_0^axdx &amp; \text{if } 0\leq a \le 1 \\
+      \int_{a-1}^1xdx+\int_1^a(2-x)dx &amp; \text{if } 1\leq a \le 2 \\
+      \int_{a-1}^2(2-x)dx &amp; \text{if } 2\leq a \le 3 \\
+      0 &amp; \text{otherwise}
+   \end{cases} \\
+&amp;=  \boxed{\begin{cases} 
+      \frac{a^2}{2} &amp; \text{if } 0\leq a \le 1 \\
+      -a^2+3a-\frac{3}{2} &amp; \text{if } 1\leq a \le 2 \\
+      \frac{a^2}{2}-3a+\frac{9}{2} &amp; \text{if } 2\leq a \le 3 \\
+      0 &amp; \text{otherwise}
+   \end{cases}}
 \end{aligned}
 \]</span></p>
 </div>
 <div id="problem-5" class="section level2">
 <h2>Problem 5</h2>
-<p>Given <span class="math inline">\(4x^2+4xY-Y+6=0\)</span> with <span class="math inline">\(\lambda=3\)</span>, the roots of Y (<span class="math inline">\(\frac{-4Y \pm \sqrt{16Y^2+16(Y-6)}}{8}\)</span>) will only be positive iff <span class="math inline">\(16Y^2+16(Y-6) \ge 0\)</span>. So we need to find</p>
+<p>Let S be the number of successes. S is therefore binomial with the parameters <span class="math inline">\(n = 1210, p = \frac{1}{11}\)</span>.</p>
+<p>Thus we have <span class="math inline">\(E[S]=np=1210*\frac{1}{11}=110\)</span>,and <span class="math inline">\(\sigma(S)=\sqrt{1210*\frac{1}{11}(1-\frac{1}{11})}=10\)</span>.</p>
+<p>By the DeMoivre-Laplace limit theorem,</p>
 <p><span class="math display">\[
 \begin{aligned}
-P(16Y^2+16(Y-6) \ge 0)&amp;=P(Y^2+Y-6 \ge 0) \\
-&amp;=P((Y+3)*(Y-2) \ge 0) \\
-&amp;=P(Y \le -3) + P(Y \ge 2) \\
-&amp;=0+e^{-2\lambda} \\
-&amp;= \boxed{e^{-6}}
+P(97.5 \le S \le 116.5)&amp;=P(-12.5 \le S-np \le -6.5) \\
+&amp;=P(-1.25 \le \frac{S-np}{\sqrt{np(1-p)}} \le 0.65) \\
+&amp;=P(-1.25 \le Z \le 0.65) \\
+&amp;= \boxed{0.6366} \text{ according to R}
 \end{aligned}
 \]</span></p>
 </div>
 <div id="problem-6" class="section level2">
 <h2>Problem 6</h2>
+<p>Let H be the number of heads, H is binomial and has parameters <span class="math inline">\(n = 90,000\)</span> and <span class="math inline">\(p = \frac{1}{2}\)</span>.</p>
+<p>Therefore <span class="math inline">\(E[H]=90,000*\frac{1}{2}=45,000\)</span> and <span class="math inline">\(\sigma(H)=\sqrt{90,000*\frac{1}{2}(1-\frac{1}{2})}=150\)</span>.</p>
+<p>Thus, by the DeMoivre-Laplace limit theorem,</p>
 <p><span class="math display">\[
 \begin{aligned}
-\tau(\alpha + 1)&amp;=\int_0^{\infty}e^{-y}y^{\alpha}dy \\
-&amp;= \int_0^{\infty}(-e^{-y})&#39;y^{\alpha}dy \\
-&amp;=(-e^{-y}y^\alpha)\Bigg|_0^{\infty}-\int_0^{\infty}e^{-y}(y^{\alpha})&#39;dy \\
-&amp;=0 + \int_0^{\infty}e^{-y}y^{\alpha-1}dy \\
-&amp;=\alpha \tau(\alpha) \\
-\tau(1)&amp;=\int_0^{\infty}e^{-y}dy \\
-&amp;=1=0!
+P(45,031.5 \le H \le 45,169.5)&amp;=P(31.5 \le H-np \le 169.5) \\
+&amp;=P(\frac{31.5}{150} \le \frac{H-np}{\sqrt{np(1-p)}} \le \frac{169.5}{150}) \\
+&amp;=P(0.21 \le Z \le 1.13) \\
+&amp;= \boxed{0.2876} \text{ according to R}
 \end{aligned}
 \]</span></p>
-<p>Therefore <span class="math inline">\(\tau(2)=1*\tau(1)=1!\)</span></p>
 </div>
 <div id="problem-7" class="section level2">
 <h2>Problem 7</h2>
+<p>Just want to solve this one the normal way first, since it says estimate I also solve with DeMoivre-Laplace.</p>
+<p>We have <span class="math inline">\(n = 18,000\)</span> and <span class="math inline">\(p=\frac{1}{6}\)</span>, so <span class="math inline">\(E[X]=3,000\)</span> and <span class="math inline">\(Var[X]=np(1-p)=18,000*\frac{1}{6}*\frac{5}{6}=2500\)</span></p>
+<p>By the Central Limit Theorem,</p>
 <p><span class="math display">\[
 \begin{aligned}
-E[X^k]&amp;=\int_0^{\infty}(\frac{y}{\lambda})^ke^{-y}dy \\
-&amp;=\frac{1}{\lambda^k}\int_0^{\infty}e^{-y}y^{(k+1)-1}dy \\
-&amp;=\frac{\tau(k+1)}{\lambda^k} \\
-&amp;=\frac{k!}{\lambda^k} 
+P(Z=\frac{X-E[X]}{\sqrt{Var[X]}} \ge 3,060) &amp;=P(\frac{X-3,000}{50} \ge \frac{3,060-3,000}{50}) \\
+&amp;=P(Z \ge 1.2) \\
+&amp;=1-P(Z&lt;1.2) \\
+&amp;\approx \boxed{0.1151} \text{ in R 1-pnorm(1.2, lower.tail = T)}
 \end{aligned}
 \]</span></p>
-</div>
-<div id="problem-8" class="section level2">
-<h2>Problem 8</h2>
+<p>This time estimating by the DeMoivre-Laplace limit theorem where S is binomial with the above parameters</p>
 <p><span class="math display">\[
 \begin{aligned}
-E[e^{-x}]&amp;=\frac{1}{\tau(\alpha)}\int_0^{\infty}\lambda e^{-x}e^{-\lambda x}(\lambda x)^{\alpha -1}dx \\
-&amp;=\frac{\lambda}{\tau(\alpha)}\int_0^{\infty}e^{-(\lambda + 1) x}(x)^{\alpha -1}dx &amp;&amp; \text{Let } y = (\lambda + 1)x \\
-&amp;=\frac{\lambda}{\tau(\alpha)}\int_0^{\infty}e^{-y}\frac{y^{\alpha - 1}}{(\lambda + 1)^{\alpha - 1}}\frac{1}{\lambda + 1}dy \\
-&amp;=\Bigg(\frac{\lambda}{\lambda+1}\Bigg)^\alpha\frac{1}{\tau(\alpha)}\int_0^{\infty}e^{-y}y^{\alpha-1}dy \\
-&amp;=\Bigg(\frac{\lambda}{\lambda+1}\Bigg)^\alpha
+P(3,059.5 \le S &lt; \infty)&amp;=P(59.5 \le S-np&lt; \infty) \\
+&amp;=P(\frac{59.5}{50} \le \frac{S-np}{\sqrt{np(1-p)}}&lt; \frac{\infty}{50}) \\
+&amp;=P(0.21 \le Z &lt; \infty) \\
+&amp;= \boxed{0.1170} \text{ which is pretty close to the CLT approximation}
 \end{aligned}
 \]</span></p>
-</div>
-<div id="problem-9" class="section level2">
-<h2>Problem 9</h2>
-<p>We have <span class="math inline">\(t&gt;0\)</span>, <span class="math inline">\(f(t)=\lambda e^{-\lambda t}\)</span>, <span class="math inline">\(F(t)=1-e^{-\lambda t}\)</span>.</p>
-<p><span class="math display">\[
-\begin{aligned}
-h(t)&amp;=\frac{f(t)}{1-F(t)} \\
-&amp;=\frac{\lambda e^{-\lambda t}}{1-(1-e^{-\lambda t})} \\
-&amp;= \lambda
-\end{aligned}
-\]</span></p>
-<p>The memorylessness property therefore makes it such that the “hazard rate” is constant at all times</p>
 </div>
 </article>
 </div>

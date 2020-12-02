@@ -82,138 +82,105 @@ E[e^z]&=\int_{-\infty}^{\infty}f_Z(x)dx \\
 $$
 
 
-$$
-\begin{aligned}
-
-\end{aligned}
-$$
-
 ## Problem 3 
 
 $$
 \begin{aligned}
-1&= \int_{-\infty}^{\infty}f(x)dx \\
-&= \int_0^1(ax^2+bx)dx \\
-&= \Bigg[ax^3\frac{1}{3}+bx^2\frac{1}{2}\Bigg] \\
-&= \frac{1}{3}a+\frac{1}{2}b
+V(X+Y)&=E[(X+Y)^2]-(E[X+Y])^2 \\
+&=E[X^2+2XY+Y^2]-(E[X]+E[Y])^2 \\
+&=E[X^2]-(E[X])^2+E[Y^2]-2E[XY]+2E[X]E[Y] \\
+&=E[X^2]-(E[X])^2-(E[Y])^2 \\
+&\text{We know }E[X*Y]=E[X]*E[Y] \text{, so} \\
+&=\boxed{Var(X)+Var(Y)}
 \end{aligned}
 $$
 
-$$
-\begin{aligned}
-0.75&=E(X) \\
-&=\int_{-\infty}^{\infty}xf(x)dx \\
-&=\int_{0}^{1}(ax^3+bx^2)dx \\
-&= \Bigg[a\frac{x^4}{4}+b\frac{x^3}{3}\Bigg]^1_0 \\
-&=\frac{1}{4}a+\frac{1}{3}b
-\end{aligned}
-$$
 
-So we have $1 = \frac{1}{3}a+\frac{1}{2}b$ and $0.75= \frac{1}{4}a+\frac{1}{3}b$ which reduces to $b=0, a = 3$.
-
-Therefore,
-
-$$
-\begin{aligned}
-E(X^2)&=\int_{-\infty}^{\infty}x^2f(x)dx \\
-&=\int_{1}^{0}3x^4dx \\
-&= \frac{3x^5}{5}\Bigg|_0^1 \\
-&= \boxed{\frac{3}{5}}
-\end{aligned}
-$$
-
-and,
-
-$$
-\begin{aligned}
-Var(X)&= E(X^2)-E(X)^2 \\
-&= \frac{3}{5} - {0.75}^2 \\
-&= \boxed{0.0375}
-\end{aligned}
-$$
 
 ## Problem 4
 
 $$
 \begin{aligned}
-P(1<X<3)&=\int_1^3F(x)dx \\
-&=\int_{-\infty}^3F(x)dx- \int_{-\infty}^1F(x)dx \\
-&=F(3)-F(1) \\
-&= \frac{15}{6}-\frac{3}{4} \\
-&= \boxed{\frac{3}{16}}
+f_{x_1+x_2+x_3}(a)&=\int_{-\infty}^{\infty}f_{x_1+x_2}(x)f_{x_3}(a-x) \\
+&=\int_0^1xf_{x)3}(a-x)dx+\int_1^2(2-x)f_{x_3}(a-x)dx \\
+&=  \begin{cases} 
+      \int_0^axdx & \text{if } 0\leq a \le 1 \\
+      \int_{a-1}^1xdx+\int_1^a(2-x)dx & \text{if } 1\leq a \le 2 \\
+      \int_{a-1}^2(2-x)dx & \text{if } 2\leq a \le 3 \\
+      0 & \text{otherwise}
+   \end{cases} \\
+&=  \boxed{\begin{cases} 
+      \frac{a^2}{2} & \text{if } 0\leq a \le 1 \\
+      -a^2+3a-\frac{3}{2} & \text{if } 1\leq a \le 2 \\
+      \frac{a^2}{2}-3a+\frac{9}{2} & \text{if } 2\leq a \le 3 \\
+      0 & \text{otherwise}
+   \end{cases}}
 \end{aligned}
 $$
 
 
 ## Problem 5
 
-Given $4x^2+4xY-Y+6=0$ with $\lambda=3$, the roots of Y ($\frac{-4Y \pm \sqrt{16Y^2+16(Y-6)}}{8}$) will only be positive iff $16Y^2+16(Y-6) \ge 0$. So we need to find 
+Let S be the number of successes. S is therefore binomial with the parameters $n = 1210, p = \frac{1}{11}$.
+
+Thus we have $E[S]=np=1210*\frac{1}{11}=110$,and $\sigma(S)=\sqrt{1210*\frac{1}{11}(1-\frac{1}{11})}=10$.
+
+By the DeMoivre-Laplace limit theorem,
 
 $$
 \begin{aligned}
-P(16Y^2+16(Y-6) \ge 0)&=P(Y^2+Y-6 \ge 0) \\
-&=P((Y+3)*(Y-2) \ge 0) \\
-&=P(Y \le -3) + P(Y \ge 2) \\
-&=0+e^{-2\lambda} \\
-&= \boxed{e^{-6}}
+P(97.5 \le S \le 116.5)&=P(-12.5 \le S-np \le -6.5) \\
+&=P(-1.25 \le \frac{S-np}{\sqrt{np(1-p)}} \le 0.65) \\
+&=P(-1.25 \le Z \le 0.65) \\
+&= \boxed{0.6366} \text{ according to R}
 \end{aligned}
 $$
-
 
 ## Problem 6
 
+Let H be the number of heads, H is binomial and has parameters $n = 90,000$ and $p = \frac{1}{2}$.
+
+Therefore $E[H]=90,000*\frac{1}{2}=45,000$ and $\sigma(H)=\sqrt{90,000*\frac{1}{2}(1-\frac{1}{2})}=150$.
+
+Thus, by the DeMoivre-Laplace limit theorem,
+
 $$
 \begin{aligned}
-\tau(\alpha + 1)&=\int_0^{\infty}e^{-y}y^{\alpha}dy \\
-&= \int_0^{\infty}(-e^{-y})'y^{\alpha}dy \\
-&=(-e^{-y}y^\alpha)\Bigg|_0^{\infty}-\int_0^{\infty}e^{-y}(y^{\alpha})'dy \\
-&=0 + \int_0^{\infty}e^{-y}y^{\alpha-1}dy \\
-&=\alpha \tau(\alpha) \\
-\tau(1)&=\int_0^{\infty}e^{-y}dy \\
-&=1=0!
+P(45,031.5 \le H \le 45,169.5)&=P(31.5 \le H-np \le 169.5) \\
+&=P(\frac{31.5}{150} \le \frac{H-np}{\sqrt{np(1-p)}} \le \frac{169.5}{150}) \\
+&=P(0.21 \le Z \le 1.13) \\
+&= \boxed{0.2876} \text{ according to R}
 \end{aligned}
 $$
-
-Therefore $\tau(2)=1*\tau(1)=1!$
 
 ## Problem 7
 
-$$
-\begin{aligned}
-E[X^k]&=\int_0^{\infty}(\frac{y}{\lambda})^ke^{-y}dy \\
-&=\frac{1}{\lambda^k}\int_0^{\infty}e^{-y}y^{(k+1)-1}dy \\
-&=\frac{\tau(k+1)}{\lambda^k} \\
-&=\frac{k!}{\lambda^k} 
-\end{aligned}
-$$
+Just want to solve this one the normal way first, since it says estimate I also solve with DeMoivre-Laplace.
 
+We have $n = 18,000$ and $p=\frac{1}{6}$, so $E[X]=3,000$ and $Var[X]=np(1-p)=18,000*\frac{1}{6}*\frac{5}{6}=2500$
 
-## Problem 8
+By the Central Limit Theorem,
 
 $$
 \begin{aligned}
-E[e^{-x}]&=\frac{1}{\tau(\alpha)}\int_0^{\infty}\lambda e^{-x}e^{-\lambda x}(\lambda x)^{\alpha -1}dx \\
-&=\frac{\lambda}{\tau(\alpha)}\int_0^{\infty}e^{-(\lambda + 1) x}(x)^{\alpha -1}dx && \text{Let } y = (\lambda + 1)x \\
-&=\frac{\lambda}{\tau(\alpha)}\int_0^{\infty}e^{-y}\frac{y^{\alpha - 1}}{(\lambda + 1)^{\alpha - 1}}\frac{1}{\lambda + 1}dy \\
-&=\Bigg(\frac{\lambda}{\lambda+1}\Bigg)^\alpha\frac{1}{\tau(\alpha)}\int_0^{\infty}e^{-y}y^{\alpha-1}dy \\
-&=\Bigg(\frac{\lambda}{\lambda+1}\Bigg)^\alpha
+P(Z=\frac{X-E[X]}{\sqrt{Var[X]}} \ge 3,060) &=P(\frac{X-3,000}{50} \ge \frac{3,060-3,000}{50}) \\
+&=P(Z \ge 1.2) \\
+&=1-P(Z<1.2) \\
+&\approx \boxed{0.1151} \text{ in R 1-pnorm(1.2, lower.tail = T)}
 \end{aligned}
 $$
 
-
-## Problem 9
-
-We have $t>0$, $f(t)=\lambda e^{-\lambda t}$, $F(t)=1-e^{-\lambda t}$.
+This time estimating by the DeMoivre-Laplace limit theorem where S is binomial with the above parameters 
 
 $$
 \begin{aligned}
-h(t)&=\frac{f(t)}{1-F(t)} \\
-&=\frac{\lambda e^{-\lambda t}}{1-(1-e^{-\lambda t})} \\
-&= \lambda
+P(3,059.5 \le S < \infty)&=P(59.5 \le S-np< \infty) \\
+&=P(\frac{59.5}{50} \le \frac{S-np}{\sqrt{np(1-p)}}< \frac{\infty}{50}) \\
+&=P(0.21 \le Z < \infty) \\
+&= \boxed{0.1170} \text{ which is pretty close to the CLT approximation}
 \end{aligned}
 $$
 
-The memorylessness property therefore makes it such that the "hazard rate" is constant at all times
 
 
 
